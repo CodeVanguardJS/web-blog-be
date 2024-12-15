@@ -20,6 +20,8 @@ Reference URL:
 - Pagination atau Infinite Scroll: Untuk artikel atau resep panjang.
 - Bookmark: Fitur menyimpan artikel ke "favorites" (dengan localStorage atau user-auth).
 - Integrasi Media Sosial: Tombol share untuk membagikan resep ke Facebook, Twitter, dsb.
+- Role: User, Admin
+- Private and Published Article
 
 # Functional Requirements (Fitur Utama)
 # a. Homepage
@@ -59,4 +61,4 @@ Reference URL:
 - Deskripsi: Halaman backend untuk mengelola artikel dan kategori.
 - Fitur:
     - CRUD Artikel (Create, Read, Update, Delete).
-    - Manajemen Kategori.
+    - Manajemen tags.
