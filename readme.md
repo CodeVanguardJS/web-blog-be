@@ -34,10 +34,10 @@ Reference URL:
 
 - Deskripsi: Halaman detail untuk setiap artikel/resep.
 - Fitur:
-- Judul, deskripsi singkat, dan foto makanan.
-- Informasi bahan-bahan dan langkah-langkah memasak (terstruktur).
-- Waktu memasak, porsi, tingkat kesulitan.
-- Rating atau komentar dari pengguna (opsional).
+  - Judul, deskripsi singkat, dan foto makanan.
+  - Informasi bahan-bahan dan langkah-langkah memasak (terstruktur).
+  - Waktu memasak, porsi, tingkat kesulitan.
+  - Rating atau komentar dari pengguna (opsional).
 
 # c. Kategori Makanan
 
