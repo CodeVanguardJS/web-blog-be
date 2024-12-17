@@ -8,8 +8,9 @@ Reference URL:
 
 # Techstack
 - Authentication: JWT Auth
-- Frontend: React, Tailwind, Context API, Eslint, Prettier, Jest
+- Frontend: React, Tailwind, Context API, Jest
 - Backend: expressJS, prisma, CORS, JWT, bcrypt, Jest
+- Lint & Formater: Eslint, Prettier
 - Database: PostgreSQL, Cloudinary
 - Devops: Docker
 
