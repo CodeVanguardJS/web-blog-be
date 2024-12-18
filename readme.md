@@ -1,12 +1,15 @@
 Member:
+
 1. Muhammad Syaifullah Al Arief
 2. Muhammad Luthfi Zuhair
 
 Reference URL:
-1. https://pinchofyum.com/ 
+
+1. https://pinchofyum.com/
 2. https://cookieandkate.com/
 
 # Techstack
+
 - Authentication: JWT Auth
 - Frontend: React, Tailwind, Context API, Jest
 - Backend: expressJS, prisma, CORS, JWT, bcrypt, Jest
@@ -25,13 +28,14 @@ Reference URL:
 - Private and Published Article
 
 # Functional Requirements (Fitur Utama)
+
 # a. Homepage
 
 - Deskripsi: Tampilan utama blog dengan hero section (foto makanan menarik), daftar artikel/resep terbaru, dan kategori makanan.
 - Fitur:
-    - Carousel atau grid untuk artikel unggulan.
-    - Search bar untuk mencari artikel/resep.
-    - Filter berdasarkan kategori.
+  - Carousel atau grid untuk artikel unggulan.
+  - Search bar untuk mencari artikel/resep.
+  - Filter berdasarkan kategori.
 
 # b. Blog Post (Resep atau Artikel)
 
@@ -45,9 +49,9 @@ Reference URL:
 # c. Kategori Makanan
 
 - Deskripsi: Halaman dengan daftar makanan berdasarkan kategori (e.g., Breakfast, Dessert, Vegetarian).
-- Fitur:  
-	- Daftar kategori dengan ikon atau gambar.
-	- Grid atau list artikel yang terkait kategori.
+- Fitur:
+  - Daftar kategori dengan ikon atau gambar.
+  - Grid atau list artikel yang terkait kategori.
 
 # d. Halaman Tentang dan Kontak
 
@@ -61,5 +65,5 @@ Reference URL:
 
 - Deskripsi: Halaman backend untuk mengelola artikel dan kategori.
 - Fitur:
-    - CRUD Artikel (Create, Read, Update, Delete).
-    - Manajemen tags.
+  - CRUD Artikel (Create, Read, Update, Delete).
+  - Manajemen tags.
