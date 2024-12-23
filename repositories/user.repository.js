@@ -1,11 +1,11 @@
 class UserRepository {
-  async getAll() {
+  async getAll () {
     return []
   }
 
-  async create() {}
-  async update() {}
-  async delete() {}
+  async create () {}
+  async update () {}
+  async delete () {}
 }
 
 module.exports = UserRepository
