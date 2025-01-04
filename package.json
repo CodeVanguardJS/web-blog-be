@@ -4,8 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev:migrate": "dotenv -e .env.development -- npx prisma migrate dev",
+    "staging:migrate": "dotenv -e .env.staging -- npx prisma migrate deploy",
+    "prod:migrate": "dotenv -e .env.production -- npx prisma migrate deploy",
     "test": "jest",
-    "dev": "nodemon cmd/server.js",
+    "dev": "dotenv -e .env.staging -- nodemon cmd/server.js",
     "prepare": "husky",
     "prettier": "prettier --check .",
     "prettier:format": "prettier --write .",

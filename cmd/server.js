@@ -1,7 +1,8 @@
 const app = require('../app')
-const env = require('dotenv')
+const dotenv = require('dotenv')
 
-env.config()
+const environment = process.env.NODE_ENV || 'development'
+dotenv.config({ path: `.env.${environment}` })
 
 const port = process.env.APP_PORT || 5000
 
