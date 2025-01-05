@@ -6,8 +6,9 @@ class CategoryService {
       const category = await CategoryRepository.getAll()
       return category
     } catch (error) {
-      console.log(error)
-      throw error
+      const err = new Error('Internal Server Error')
+      err.statusCode = 500
+      throw err
     }
   }
 
