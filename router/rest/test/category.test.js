@@ -36,6 +36,6 @@ describe('GET List todo /api/v1/categories', () => {
     const response = await request(app).get(BASE_URL).expect(200)
 
     // Assertions
-    expect(response.body.message).toBe('Successs')
+    expect(response.body.message).toBe('Success')
   })
 })
