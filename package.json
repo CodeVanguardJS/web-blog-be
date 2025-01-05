@@ -7,7 +7,7 @@
     "dev:migrate": "dotenv -e .env.development -- npx prisma migrate dev",
     "staging:migrate": "dotenv -e .env.staging -- npx prisma migrate deploy",
     "prod:migrate": "dotenv -e .env.production -- npx prisma migrate deploy",
-    "test": "dotenv -e .env.staging -- jest",
+    "test": "dotenv -e .env.staging -- jest --verbose",
     "dev": "dotenv -e .env.development -- nodemon cmd/server.js",
     "prepare": "husky",
     "prettier": "prettier --check .",
