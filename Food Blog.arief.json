@@ -1,1052 +1,905 @@
 {
-	"info": {
-		"_postman_id": "47ede02b-80cb-4aa2-ad36-0f9b191fad7c",
-		"name": "Food Blog",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "12326491"
-	},
-	"item": [
-		{
-			"name": "categories",
-			"item": [
-				{
-					"name": "get all",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{local}}/categories",
-							"host": [
-								"{{local}}"
-							],
-							"path": [
-								"categories"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "200",
-							"originalRequest": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "localhost:5000/api/v1/categories",
-									"host": [
-										"localhost"
-									],
-									"port": "5000",
-									"path": [
-										"api",
-										"v1",
-										"categories"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "application/json",
-									"description": "",
-									"type": "text"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"status\": \"true\",\n    \"message\": \"Success Get All Categories\",\n    \"errors\": [],\n    \"data\": [\n        {\n            \"id\": \"1\",\n            \"name\": \"Western Food\"\n        },\n        {\n            \"id\": \"2\",\n            \"name\": \"Asian Food\"\n        }\n    ]\n\n}"
-						},
-						{
-							"name": "500",
-							"originalRequest": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{local}}/categories",
-									"host": [
-										"{{local}}"
-									],
-									"path": [
-										"categories"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "application/json",
-									"description": "",
-									"type": "text"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"status\": false,\n    \"message\": \"Failed Get Data Categories\",\n    \"errors\": [\"Internal Server Error\"],\n    \"data\": null\n}"
-						}
-					]
-				},
-				{
-					"name": "get by id",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{local}}/categories/:id",
-							"host": [
-								"{{local}}"
-							],
-							"path": [
-								"categories",
-								":id"
-							],
-							"variable": [
-								{
-									"key": "id",
-									"value": "1"
-								}
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "get all",
-							"originalRequest": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "localhost:5000/api/v1/categories",
-									"host": [
-										"localhost"
-									],
-									"port": "5000",
-									"path": [
-										"api",
-										"v1",
-										"categories"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "application/json",
-									"description": "",
-									"type": "text"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"message\": \"success\"\n}"
-						}
-					]
-				},
-				{
-					"name": "create",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"dinner\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{local}}/categories",
-							"host": [
-								"{{local}}"
-							],
-							"path": [
-								"categories"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "update",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"dinner\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{local}}/categories/:id",
-							"host": [
-								"{{local}}"
-							],
-							"path": [
-								"categories",
-								":id"
-							],
-							"variable": [
-								{
-									"key": "id",
-									"value": ""
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "delete",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"dinner\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{local}}/categories/:id",
-							"host": [
-								"{{local}}"
-							],
-							"path": [
-								"categories",
-								":id"
-							],
-							"variable": [
-								{
-									"key": "id",
-									"value": ""
-								}
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "artikel",
-			"item": [
-				{
-					"name": "get all",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{local}}/categories",
-							"host": [
-								"{{local}}"
-							],
-							"path": [
-								"categories"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "get all",
-							"originalRequest": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "localhost:5000/api/v1/categories",
-									"host": [
-										"localhost"
-									],
-									"port": "5000",
-									"path": [
-										"api",
-										"v1",
-										"categories"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "application/json",
-									"description": "",
-									"type": "text"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"message\": \"success\"\n}"
-						}
-					]
-				},
-				{
-					"name": "get by id",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{local}}/categories",
-							"host": [
-								"{{local}}"
-							],
-							"path": [
-								"categories"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "get all",
-							"originalRequest": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "localhost:5000/api/v1/categories",
-									"host": [
-										"localhost"
-									],
-									"port": "5000",
-									"path": [
-										"api",
-										"v1",
-										"categories"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "application/json",
-									"description": "",
-									"type": "text"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"message\": \"success\"\n}"
-						}
-					]
-				},
-				{
-					"name": "create",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"dinner\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{local}}/categories",
-							"host": [
-								"{{local}}"
-							],
-							"path": [
-								"categories"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "update",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"dinner\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{local}}/categories/:id",
-							"host": [
-								"{{local}}"
-							],
-							"path": [
-								"categories",
-								":id"
-							],
-							"variable": [
-								{
-									"key": "id",
-									"value": ""
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "delete",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"dinner\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{local}}/categories/:id",
-							"host": [
-								"{{local}}"
-							],
-							"path": [
-								"categories",
-								":id"
-							],
-							"variable": [
-								{
-									"key": "id",
-									"value": ""
-								}
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "like",
-			"item": [
-				{
-					"name": "get by artikel",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{local}}/categories",
-							"host": [
-								"{{local}}"
-							],
-							"path": [
-								"categories"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "get all",
-							"originalRequest": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{local}}/categories",
-									"host": [
-										"{{local}}"
-									],
-									"path": [
-										"categories"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "application/json",
-									"description": "",
-									"type": "text"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"message\": \"success\"\n}"
-						}
-					]
-				},
-				{
-					"name": "get by user",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{local}}/categories",
-							"host": [
-								"{{local}}"
-							],
-							"path": [
-								"categories"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "get all",
-							"originalRequest": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{local}}/categories",
-									"host": [
-										"{{local}}"
-									],
-									"path": [
-										"categories"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "application/json",
-									"description": "",
-									"type": "text"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"message\": \"success\"\n}"
-						}
-					]
-				},
-				{
-					"name": "add like to artikel",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"dinner\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{local}}/categories",
-							"host": [
-								"{{local}}"
-							],
-							"path": [
-								"categories"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "delete like to artikel",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"dinner\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{local}}/categories/:id",
-							"host": [
-								"{{local}}"
-							],
-							"path": [
-								"categories",
-								":id"
-							],
-							"variable": [
-								{
-									"key": "id",
-									"value": ""
-								}
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "bookmark",
-			"item": [
-				{
-					"name": "get by artikel",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{local}}/categories",
-							"host": [
-								"{{local}}"
-							],
-							"path": [
-								"categories"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "get all",
-							"originalRequest": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{local}}/categories",
-									"host": [
-										"{{local}}"
-									],
-									"path": [
-										"categories"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "application/json",
-									"description": "",
-									"type": "text"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"message\": \"success\"\n}"
-						}
-					]
-				},
-				{
-					"name": "get by user",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{local}}/categories",
-							"host": [
-								"{{local}}"
-							],
-							"path": [
-								"categories"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "get all",
-							"originalRequest": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{local}}/categories",
-									"host": [
-										"{{local}}"
-									],
-									"path": [
-										"categories"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "application/json",
-									"description": "",
-									"type": "text"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"message\": \"success\"\n}"
-						}
-					]
-				},
-				{
-					"name": "add like to artikel",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"dinner\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{local}}/categories",
-							"host": [
-								"{{local}}"
-							],
-							"path": [
-								"categories"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "delete like to artikel",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"dinner\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{local}}/categories/:id",
-							"host": [
-								"{{local}}"
-							],
-							"path": [
-								"categories",
-								":id"
-							],
-							"variable": [
-								{
-									"key": "id",
-									"value": ""
-								}
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "auth",
-			"item": [
-				{
-					"name": "register",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"budi\",\r\n    \"email\": \"budi@example.com\",\r\n    \"password\": \"12345678\",\r\n    \"confirmPassword\": \"12345678\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{local}}/auth/register",
-							"host": [
-								"{{local}}"
-							],
-							"path": [
-								"auth",
-								"register"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "login",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"budi\",\r\n    \"email\": \"budi@example.com\",\r\n    \"password\": \"12345678\",\r\n    \"confirmPassword\": \"12345678\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{local}}/auth/register",
-							"host": [
-								"{{local}}"
-							],
-							"path": [
-								"auth",
-								"register"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "me",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"budi\",\r\n    \"email\": \"budi@example.com\",\r\n    \"password\": \"12345678\",\r\n    \"confirmPassword\": \"12345678\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{local}}/auth/me",
-							"host": [
-								"{{local}}"
-							],
-							"path": [
-								"auth",
-								"me"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "me",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "name",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "email",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "photo",
-									"type": "file",
-									"src": []
-								}
-							]
-						},
-						"url": {
-							"raw": "{{local}}/auth/register",
-							"host": [
-								"{{local}}"
-							],
-							"path": [
-								"auth",
-								"register"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		}
-	],
-	"event": [
-		{
-			"listen": "prerequest",
-			"script": {
-				"type": "text/javascript",
-				"packages": {},
-				"exec": [
-					""
-				]
-			}
-		},
-		{
-			"listen": "test",
-			"script": {
-				"type": "text/javascript",
-				"packages": {},
-				"exec": [
-					""
-				]
-			}
-		}
-	],
-	"variable": [
-		{
-			"key": "local",
-			"value": "localhost:5000/api/v1",
-			"type": "string"
-		},
-		{
-			"key": "token",
-			"value": "",
-			"type": "string"
-		}
-	]
+  "info": {
+    "_postman_id": "47ede02b-80cb-4aa2-ad36-0f9b191fad7c",
+    "name": "Food Blog",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "12326491"
+  },
+  "item": [
+    {
+      "name": "categories",
+      "item": [
+        {
+          "name": "get all",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{local}}/categories",
+              "host": ["{{local}}"],
+              "path": ["categories"]
+            }
+          },
+          "response": [
+            {
+              "name": "200",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "localhost:5000/api/v1/categories",
+                  "host": ["localhost"],
+                  "port": "5000",
+                  "path": ["api", "v1", "categories"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": \"true\",\n    \"message\": \"Success Get All Categories\",\n    \"errors\": [],\n    \"data\": [\n        {\n            \"id\": \"1\",\n            \"name\": \"Western Food\"\n        },\n        {\n            \"id\": \"2\",\n            \"name\": \"Asian Food\"\n        }\n    ]\n\n}"
+            },
+            {
+              "name": "500",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{local}}/categories",
+                  "host": ["{{local}}"],
+                  "path": ["categories"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": false,\n    \"message\": \"Failed Get Data Categories\",\n    \"errors\": [\"Internal Server Error\"],\n    \"data\": null\n}"
+            }
+          ]
+        },
+        {
+          "name": "get by id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{local}}/categories/:id",
+              "host": ["{{local}}"],
+              "path": ["categories", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "get all",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "localhost:5000/api/v1/categories",
+                  "host": ["localhost"],
+                  "port": "5000",
+                  "path": ["api", "v1", "categories"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"success\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "create",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"dinner\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{local}}/categories",
+              "host": ["{{local}}"],
+              "path": ["categories"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"dinner\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{local}}/categories/:id",
+              "host": ["{{local}}"],
+              "path": ["categories", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"dinner\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{local}}/categories/:id",
+              "host": ["{{local}}"],
+              "path": ["categories", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "artikel",
+      "item": [
+        {
+          "name": "get all",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{local}}/categories",
+              "host": ["{{local}}"],
+              "path": ["categories"]
+            }
+          },
+          "response": [
+            {
+              "name": "get all",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "localhost:5000/api/v1/categories",
+                  "host": ["localhost"],
+                  "port": "5000",
+                  "path": ["api", "v1", "categories"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"success\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "get by id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{local}}/categories",
+              "host": ["{{local}}"],
+              "path": ["categories"]
+            }
+          },
+          "response": [
+            {
+              "name": "get all",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "localhost:5000/api/v1/categories",
+                  "host": ["localhost"],
+                  "port": "5000",
+                  "path": ["api", "v1", "categories"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"success\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "create",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"dinner\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{local}}/categories",
+              "host": ["{{local}}"],
+              "path": ["categories"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"dinner\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{local}}/categories/:id",
+              "host": ["{{local}}"],
+              "path": ["categories", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"dinner\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{local}}/categories/:id",
+              "host": ["{{local}}"],
+              "path": ["categories", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "like",
+      "item": [
+        {
+          "name": "get by artikel",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{local}}/categories",
+              "host": ["{{local}}"],
+              "path": ["categories"]
+            }
+          },
+          "response": [
+            {
+              "name": "get all",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{local}}/categories",
+                  "host": ["{{local}}"],
+                  "path": ["categories"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"success\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "get by user",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{local}}/categories",
+              "host": ["{{local}}"],
+              "path": ["categories"]
+            }
+          },
+          "response": [
+            {
+              "name": "get all",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{local}}/categories",
+                  "host": ["{{local}}"],
+                  "path": ["categories"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"success\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "add like to artikel",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"dinner\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{local}}/categories",
+              "host": ["{{local}}"],
+              "path": ["categories"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete like to artikel",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"dinner\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{local}}/categories/:id",
+              "host": ["{{local}}"],
+              "path": ["categories", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "bookmark",
+      "item": [
+        {
+          "name": "get by artikel",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{local}}/categories",
+              "host": ["{{local}}"],
+              "path": ["categories"]
+            }
+          },
+          "response": [
+            {
+              "name": "get all",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{local}}/categories",
+                  "host": ["{{local}}"],
+                  "path": ["categories"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"success\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "get by user",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{local}}/categories",
+              "host": ["{{local}}"],
+              "path": ["categories"]
+            }
+          },
+          "response": [
+            {
+              "name": "get all",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{local}}/categories",
+                  "host": ["{{local}}"],
+                  "path": ["categories"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"success\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "add like to artikel",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"dinner\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{local}}/categories",
+              "host": ["{{local}}"],
+              "path": ["categories"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete like to artikel",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"dinner\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{local}}/categories/:id",
+              "host": ["{{local}}"],
+              "path": ["categories", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "auth",
+      "item": [
+        {
+          "name": "register",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"budi\",\r\n    \"email\": \"budi@example.com\",\r\n    \"password\": \"12345678\",\r\n    \"confirmPassword\": \"12345678\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{local}}/auth/register",
+              "host": ["{{local}}"],
+              "path": ["auth", "register"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"budi\",\r\n    \"email\": \"budi@example.com\",\r\n    \"password\": \"12345678\",\r\n    \"confirmPassword\": \"12345678\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{local}}/auth/register",
+              "host": ["{{local}}"],
+              "path": ["auth", "register"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "me",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"budi\",\r\n    \"email\": \"budi@example.com\",\r\n    \"password\": \"12345678\",\r\n    \"confirmPassword\": \"12345678\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{local}}/auth/me",
+              "host": ["{{local}}"],
+              "path": ["auth", "me"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "me",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "value": "",
+                  "type": "text"
+                },
+                {
+                  "key": "email",
+                  "value": "",
+                  "type": "text"
+                },
+                {
+                  "key": "photo",
+                  "type": "file",
+                  "src": []
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{local}}/auth/register",
+              "host": ["{{local}}"],
+              "path": ["auth", "register"]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "exec": [""]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "exec": [""]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "local",
+      "value": "localhost:5000/api/v1",
+      "type": "string"
+    },
+    {
+      "key": "token",
+      "value": "",
+      "type": "string"
+    }
+  ]
 }
