@@ -1,0 +1,2178 @@
+{
+	"info": {
+		"_postman_id": "d2998085-12dd-4712-b6eb-40b18a435740",
+		"name": "Food Blog Final Plan",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "33491016"
+	},
+	"item": [
+		{
+			"name": "artikel (Arief)",
+			"item": [
+				{
+					"name": "get all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/article?limit=10&page=1&search=Title Article 1",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"article"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "search",
+									"value": "Title Article 1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get all",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:5000/api/v1/categories?limit=15&page=1&search=Title Article 1",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"v1",
+										"categories"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "15"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "search",
+											"value": "Title Article 1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"true\",\n    \"message\": \"Success Get All Article\",\n    \"errors\": [],\n    \"data\": [\n        {\n            \"id\": 1,\n            \"title\": \"Article 1\",\n            \"total_like\": 10,\n            \"category_id\": 1,\n            \"photo_url\": \"image1.png\",\n            \"description\": \"Description of article 1\",\n            \"user_id\": 1,\n            \"User\": {\n                \"id\": 1,\n                \"name\": \"Example User 1\",\n                \"photo_url\": \"user1.png\",\n                \"email\": \"user1@example.com\"\n            },\n            \"categories_id\": 1,\n            \"Category\": {\n                \"id\": 1,\n                \"name\": \"Technology\"\n            },\n            \"is_bookmark\": true\n        },\n        {\n            \"id\": 2,\n            \"title\": \"Article 2\",\n            \"total_like\": 5,\n            \"category_id\": 2,\n            \"photo_url\": \"image2.png\",\n            \"description\": \"Description of article 2\",\n            \"user_id\": 2,\n            \"User\": {\n                \"id\": 2,\n                \"name\": \"Example User 2\",\n                \"photo_url\": \"user2.png\",\n                \"email\": \"user2@example.com\"\n            },\n            \"categories_id\": 2,\n            \"Category\": {\n                \"id\": 2,\n                \"name\": \"Health\"\n            },\n            \"is_bookmark\": false\n        },\n        {\n            \"id\": 3,\n            \"title\": \"Article 3\",\n            \"total_like\": 7,\n            \"category_id\": 3,\n            \"photo_url\": \"image3.png\",\n            \"description\": \"Description of article 3\",\n            \"user_id\": 3,\n            \"User\": {\n                \"id\": 3,\n                \"name\": \"Example User 3\",\n                \"photo_url\": \"user3.png\",\n                \"email\": \"user3@example.com\"\n            },\n            \"categories_id\": 3,\n            \"Category\": {\n                \"id\": 3,\n                \"name\": \"Sports\"\n            },\n            \"is_bookmark\": true\n        },\n        {\n            \"id\": 4,\n            \"title\": \"Article 4\",\n            \"total_like\": 15,\n            \"category_id\": 1,\n            \"photo_url\": \"image4.png\",\n            \"description\": \"Description of article 4\",\n            \"user_id\": 1,\n            \"User\": {\n                \"id\": 1,\n                \"name\": \"Example User 1\",\n                \"photo_url\": \"user1.png\",\n                \"email\": \"user1@example.com\"\n            },\n            \"categories_id\": 1,\n            \"Category\": {\n                \"id\": 1,\n                \"name\": \"Technology\"\n            },\n            \"is_bookmark\": false\n        },\n        {\n            \"id\": 5,\n            \"title\": \"Article 5\",\n            \"total_like\": 3,\n            \"category_id\": 4,\n            \"photo_url\": \"image5.png\",\n            \"description\": \"Description of article 5\",\n            \"user_id\": 4,\n            \"User\": {\n                \"id\": 4,\n                \"name\": \"Example User 4\",\n                \"photo_url\": \"user4.png\",\n                \"email\": \"user4@example.com\"\n            },\n            \"categories_id\": 4,\n            \"Category\": {\n                \"id\": 4,\n                \"name\": \"Lifestyle\"\n            },\n            \"is_bookmark\": true\n        },\n        {\n            \"id\": 6,\n            \"title\": \"Article 6\",\n            \"total_like\": 8,\n            \"category_id\": 2,\n            \"photo_url\": \"image6.png\",\n            \"description\": \"Description of article 6\",\n            \"user_id\": 2,\n            \"User\": {\n                \"id\": 2,\n                \"name\": \"Example User 2\",\n                \"photo_url\": \"user2.png\",\n                \"email\": \"user2@example.com\"\n            },\n            \"categories_id\": 2,\n            \"Category\": {\n                \"id\": 2,\n                \"name\": \"Health\"\n            },\n            \"is_bookmark\": false\n        },\n        {\n            \"id\": 7,\n            \"title\": \"Article 7\",\n            \"total_like\": 9,\n            \"category_id\": 3,\n            \"photo_url\": \"image7.png\",\n            \"description\": \"Description of article 7\",\n            \"user_id\": 3,\n            \"User\": {\n                \"id\": 3,\n                \"name\": \"Example User 3\",\n                \"photo_url\": \"user3.png\",\n                \"email\": \"user3@example.com\"\n            },\n            \"categories_id\": 3,\n            \"Category\": {\n                \"id\": 3,\n                \"name\": \"Sports\"\n            },\n            \"is_bookmark\": true\n        },\n        {\n            \"id\": 8,\n            \"title\": \"Article 8\",\n            \"total_like\": 12,\n            \"category_id\": 5,\n            \"photo_url\": \"image8.png\",\n            \"description\": \"Description of article 8\",\n            \"user_id\": 5,\n            \"User\": {\n                \"id\": 5,\n                \"name\": \"Example User 5\",\n                \"photo_url\": \"user5.png\",\n                \"email\": \"user5@example.com\"\n            },\n            \"categories_id\": 5,\n            \"Category\": {\n                \"id\": 5,\n                \"name\": \"Travel\"\n            },\n            \"is_bookmark\": false\n        },\n        {\n            \"id\": 9,\n            \"title\": \"Article 9\",\n            \"total_like\": 4,\n            \"category_id\": 1,\n            \"photo_url\": \"image9.png\",\n            \"description\": \"Description of article 9\",\n            \"user_id\": 1,\n            \"User\": {\n                \"id\": 1,\n                \"name\": \"Example User 1\",\n                \"photo_url\": \"user1.png\",\n                \"email\": \"user1@example.com\"\n            },\n            \"categories_id\": 1,\n            \"Category\": {\n                \"id\": 1,\n                \"name\": \"Technology\"\n            },\n            \"is_bookmark\": true\n        },\n        {\n            \"id\": 10,\n            \"title\": \"Article 10\",\n            \"total_like\": 6,\n            \"category_id\": 4,\n            \"photo_url\": \"image10.png\",\n            \"description\": \"Description of article 10\",\n            \"user_id\": 4,\n            \"User\": {\n                \"id\": 4,\n                \"name\": \"Example User 4\",\n                \"photo_url\": \"user4.png\",\n                \"email\": \"user4@example.com\"\n            },\n            \"categories_id\": 4,\n            \"Category\": {\n                \"id\": 4,\n                \"name\": \"Lifestyle\"\n            },\n            \"is_bookmark\": false\n        },\n        {\n            \"id\": 11,\n            \"title\": \"Article 11\",\n            \"total_like\": 11,\n            \"category_id\": 6,\n            \"photo_url\": \"image11.png\",\n            \"description\": \"Description of article 11\",\n            \"user_id\": 6,\n            \"User\": {\n                \"id\": 6,\n                \"name\": \"Example User 6\",\n                \"photo_url\": \"user6.png\",\n                \"email\": \"user6@example.com\"\n            },\n            \"categories_id\": 6,\n            \"Category\": {\n                \"id\": 6,\n                \"name\": \"Education\"\n            },\n            \"is_bookmark\": true\n        },\n        {\n            \"id\": 12,\n            \"title\": \"Article 12\",\n            \"total_like\": 7,\n            \"category_id\": 5,\n            \"photo_url\": \"image12.png\",\n            \"description\": \"Description of article 12\",\n            \"user_id\": 5,\n            \"User\": {\n                \"id\": 5,\n                \"name\": \"Example User 5\",\n                \"photo_url\": \"user5.png\",\n                \"email\": \"user5@example.com\"\n            },\n            \"categories_id\": 5,\n            \"Category\": {\n                \"id\": 5,\n                \"name\": \"Travel\"\n            },\n            \"is_bookmark\": false\n        },\n        {\n            \"id\": 13,\n            \"title\": \"Article 13\",\n            \"total_like\": 18,\n            \"category_id\": 7,\n            \"photo_url\": \"image13.png\",\n            \"description\": \"Description of article 13\",\n            \"user_id\": 7,\n            \"User\": {\n                \"id\": 7,\n                \"name\": \"Example User 7\",\n                \"photo_url\": \"user7.png\",\n                \"email\": \"user7@example.com\"\n            },\n            \"categories_id\": 7,\n            \"Category\": {\n                \"id\": 7,\n                \"name\": \"Entertainment\"\n            },\n            \"is_bookmark\": true\n        },\n        {\n            \"id\": 14,\n            \"title\": \"Article 14\",\n            \"total_like\": 2,\n            \"category_id\": 4,\n            \"photo_url\": \"image14.png\",\n            \"description\": \"Description of article 14\",\n            \"user_id\": 4,\n            \"User\": {\n                \"id\": 4,\n                \"name\": \"Example User 4\",\n                \"photo_url\": \"user4.png\",\n                \"email\": \"user4@example.com\"\n            },\n            \"categories_id\": 4,\n            \"Category\": {\n                \"id\": 4,\n                \"name\": \"Lifestyle\"\n            },\n            \"is_bookmark\": false\n        },\n        {\n            \"id\": 15,\n            \"title\": \"Article 15\",\n            \"total_like\": 14,\n            \"category_id\": 2,\n            \"photo_url\": \"image15.png\",\n            \"description\": \"Description of article 15\",\n            \"user_id\": 2,\n            \"User\": {\n                \"id\": 2,\n                \"name\": \"Example User 2\",\n                \"photo_url\": \"user2.png\",\n                \"email\": \"user2@example.com\"\n            },\n            \"categories_id\": 2,\n            \"Category\": {\n                \"id\": 2,\n                \"name\": \"Health\"\n            },\n            \"is_bookmark\": true\n        }\n    ]\n}"
+						},
+						{
+							"name": "search",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:5000/api/v1/categories?limit=10&page=1&search=Article 1",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"v1",
+										"categories"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "10"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "search",
+											"value": "Article 1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"true\",\n    \"message\": \"Success Get All Article\",\n    \"errors\": [],\n    \"data\": [\n        {\n            \"id\": 1,\n            \"title\": \"Article 1\",\n            \"total_like\": 10,\n            \"category_id\": 1,\n            \"photo_url\": \"image1.png\",\n            \"description\": \"Description of article 1\",\n            \"user_id\": 1,\n            \"User\": {\n                \"id\": 1,\n                \"name\": \"Example User 1\",\n                \"photo_url\": \"user1.png\",\n                \"email\": \"user1@example.com\"\n            },\n            \"categories_id\": 1,\n            \"Category\": {\n                \"id\": 1,\n                \"name\": \"Technology\"\n            },\n            \"is_bookmark\": true\n        }\n    ]\n}"
+						},
+						{
+							"name": "pagination",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:5000/api/v1/categories?limit=5&page=2&search=Title Article 1",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"v1",
+										"categories"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "5"
+										},
+										{
+											"key": "page",
+											"value": "2"
+										},
+										{
+											"key": "search",
+											"value": "Title Article 1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"true\",\n    \"message\": \"Success Get All Article\",\n    \"errors\": [],\n    \"data\": [\n        {\n            \"id\": 6,\n            \"title\": \"Article 6\",\n            \"total_like\": 8,\n            \"category_id\": 2,\n            \"photo_url\": \"image6.png\",\n            \"description\": \"Description of article 6\",\n            \"user_id\": 2,\n            \"User\": {\n                \"id\": 2,\n                \"name\": \"Example User 2\",\n                \"photo_url\": \"user2.png\",\n                \"email\": \"user2@example.com\"\n            },\n            \"categories_id\": 2,\n            \"Category\": {\n                \"id\": 2,\n                \"name\": \"Health\"\n            },\n            \"is_bookmark\": false\n        },\n        {\n            \"id\": 7,\n            \"title\": \"Article 7\",\n            \"total_like\": 9,\n            \"category_id\": 3,\n            \"photo_url\": \"image7.png\",\n            \"description\": \"Description of article 7\",\n            \"user_id\": 3,\n            \"User\": {\n                \"id\": 3,\n                \"name\": \"Example User 3\",\n                \"photo_url\": \"user3.png\",\n                \"email\": \"user3@example.com\"\n            },\n            \"categories_id\": 3,\n            \"Category\": {\n                \"id\": 3,\n                \"name\": \"Sports\"\n            },\n            \"is_bookmark\": true\n        },\n        {\n            \"id\": 8,\n            \"title\": \"Article 8\",\n            \"total_like\": 12,\n            \"category_id\": 5,\n            \"photo_url\": \"image8.png\",\n            \"description\": \"Description of article 8\",\n            \"user_id\": 5,\n            \"User\": {\n                \"id\": 5,\n                \"name\": \"Example User 5\",\n                \"photo_url\": \"user5.png\",\n                \"email\": \"user5@example.com\"\n            },\n            \"categories_id\": 5,\n            \"Category\": {\n                \"id\": 5,\n                \"name\": \"Travel\"\n            },\n            \"is_bookmark\": false\n        },\n        {\n            \"id\": 9,\n            \"title\": \"Article 9\",\n            \"total_like\": 4,\n            \"category_id\": 1,\n            \"photo_url\": \"image9.png\",\n            \"description\": \"Description of article 9\",\n            \"user_id\": 1,\n            \"User\": {\n                \"id\": 1,\n                \"name\": \"Example User 1\",\n                \"photo_url\": \"user1.png\",\n                \"email\": \"user1@example.com\"\n            },\n            \"categories_id\": 1,\n            \"Category\": {\n                \"id\": 1,\n                \"name\": \"Technology\"\n            },\n            \"is_bookmark\": true\n        },\n        {\n            \"id\": 10,\n            \"title\": \"Article 10\",\n            \"total_like\": 6,\n            \"category_id\": 4,\n            \"photo_url\": \"image10.png\",\n            \"description\": \"Description of article 10\",\n            \"user_id\": 4,\n            \"User\": {\n                \"id\": 4,\n                \"name\": \"Example User 4\",\n                \"photo_url\": \"user4.png\",\n                \"email\": \"user4@example.com\"\n            },\n            \"categories_id\": 4,\n            \"Category\": {\n                \"id\": 4,\n                \"name\": \"Lifestyle\"\n            },\n            \"is_bookmark\": false\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "get by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{local}}/categories"
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:5000/api/v1/categories/:id",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"v1",
+										"categories",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "4"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"true\",\n    \"message\": \"Success Get All Article\",\n    \"errors\": [],\n    \"data\": {\n            \"id\": 1,\n            \"title\": \"Article 1\",\n            \"total_like\": 10,\n            \"category_id\": 1,\n            \"photo_url\": \"image1.png\",\n            \"description\": \"Description of article 1\",\n            \"user_id\": 1,\n            \"User\": {\n                \"id\": 1,\n                \"name\": \"Example User 1\",\n                \"photo_url\": \"user1.png\",\n                \"email\": \"user1@example.com\"\n            },\n            \"categories_id\": 4,\n            \"Category\": {\n                \"id\": 4,\n                \"name\": \"Lifestyle\"\n            },\n            \"is_bookmarked\": true,\n            \"is_liked\": true\n        }\n}"
+						}
+					]
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": "{{local}}/artikel"
+					},
+					"response": [
+						{
+							"name": "201",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "token",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "Article 1",
+											"type": "text"
+										},
+										{
+											"key": "photo",
+											"type": "file",
+											"src": "/C:/Users/msyai/OneDrive/Pictures/1.jpg"
+										},
+										{
+											"key": "category_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "description article 1",
+											"type": "text"
+										},
+										{
+											"key": "recipes",
+											"value": "recipes text 1",
+											"type": "text"
+										},
+										{
+											"key": "recipes",
+											"value": "recipes text 2",
+											"type": "text"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "localhost:5000/api/v1/categories"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"status\": \"true\",\r\n    \"message\": \"Success Post Categories\",\r\n    \"errors\": [],\r\n    \"data\": {\r\n        \"id\": 1\r\n    }\r\n}"
+						}
+					]
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"dinner\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/categories/:id",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"categories",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "token",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "Article 1 Update",
+											"type": "text"
+										},
+										{
+											"key": "photo",
+											"type": "file",
+											"src": "/C:/Users/msyai/OneDrive/Pictures/1.jpg"
+										},
+										{
+											"key": "description",
+											"value": "description 1 update",
+											"type": "text"
+										},
+										{
+											"key": "category_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "recipes",
+											"value": "recipes 1",
+											"type": "text"
+										},
+										{
+											"key": "recipes",
+											"value": "recipes 2",
+											"type": "text"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:5000/api/v1/categories/:id",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"v1",
+										"categories",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"true\",\n    \"message\": \"Success Post Categories\",\n    \"errors\": [],\n    \"data\": {\n        \"id\": 1\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"dinner\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/categories/:id",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"categories",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "token",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"dinner\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:5000/api/v1/categories/:id",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"v1",
+										"categories",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"true\",\n    \"message\": \"Success Delete Categories\",\n    \"errors\": [],\n    \"data\": {\n        \"id\": 1\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "get by categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/article/category/:category_id",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"article",
+								"category",
+								":category_id"
+							],
+							"variable": [
+								{
+									"key": "category_id",
+									"value": ""
+								}
+							]
+						},
+						"description": "This endpoint retrieves articles belonging to a specific category based on the provided category ID.\n\nThe response of this request can be documented as a JSON schema as follows:\n\n``` json\n{\n  \"type\": \"object\",\n  \"properties\": {\n    // Define the properties of the response here\n  }\n}\n\n ```"
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:5000/api/v1/article/categories/:category_id",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"v1",
+										"article",
+										"categories",
+										":category_id"
+									],
+									"variable": [
+										{
+											"key": "category_id",
+											"value": "4"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"true\",\n    \"message\": \"Success Get Article By Categories\",\n    \"errors\": [],\n    \"data\": [\n        {\n            \"id\": 1,\n            \"title\": \"Article 1\",\n            \"total_like\": 10,\n            \"category_id\": 1,\n            \"photo_url\": \"image1.png\",\n            \"description\": \"Description of article 1\",\n            \"user_id\": 1,\n            \"User\": {\n                \"id\": 1,\n                \"name\": \"Example User 1\",\n                \"photo_url\": \"user1.png\",\n                \"email\": \"user1@example.com\"\n            },\n            \"categories_id\": 4,\n            \"Category\": {\n                \"id\": 4,\n                \"name\": \"Lifestyle\"\n            },\n            \"is_bookmark\": true\n        },\n        {\n            \"id\": 2,\n            \"title\": \"Article 2\",\n            \"total_like\": 5,\n            \"category_id\": 2,\n            \"photo_url\": \"image2.png\",\n            \"description\": \"Description of article 2\",\n            \"user_id\": 2,\n            \"User\": {\n                \"id\": 2,\n                \"name\": \"Example User 2\",\n                \"photo_url\": \"user2.png\",\n                \"email\": \"user2@example.com\"\n            },\n            \"categories_id\": 4,\n            \"Category\": {\n                \"id\": 4,\n                \"name\": \"Lifestyle\"\n            },\n            \"is_bookmark\": false\n        },\n        {\n            \"id\": 3,\n            \"title\": \"Article 3\",\n            \"total_like\": 7,\n            \"category_id\": 3,\n            \"photo_url\": \"image3.png\",\n            \"description\": \"Description of article 3\",\n            \"user_id\": 3,\n            \"User\": {\n                \"id\": 3,\n                \"name\": \"Example User 3\",\n                \"photo_url\": \"user3.png\",\n                \"email\": \"user3@example.com\"\n            },\n            \"categories_id\": 4,\n            \"Category\": {\n                \"id\": 4,\n                \"name\": \"Lifestyle\"\n            },\n            \"is_bookmark\": true\n        },\n        {\n            \"id\": 4,\n            \"title\": \"Article 4\",\n            \"total_like\": 15,\n            \"category_id\": 1,\n            \"photo_url\": \"image4.png\",\n            \"description\": \"Description of article 4\",\n            \"user_id\": 1,\n            \"User\": {\n                \"id\": 1,\n                \"name\": \"Example User 1\",\n                \"photo_url\": \"user1.png\",\n                \"email\": \"user1@example.com\"\n            },\n            \"categories_id\": 4,\n            \"Category\": {\n                \"id\": 4,\n                \"name\": \"Lifestyle\"\n            },\n            \"is_bookmark\": false\n        },\n        {\n            \"id\": 5,\n            \"title\": \"Article 5\",\n            \"total_like\": 3,\n            \"category_id\": 4,\n            \"photo_url\": \"image5.png\",\n            \"description\": \"Description of article 5\",\n            \"user_id\": 4,\n            \"User\": {\n                \"id\": 4,\n                \"name\": \"Example User 4\",\n                \"photo_url\": \"user4.png\",\n                \"email\": \"user4@example.com\"\n            },\n            \"categories_id\": 4,\n            \"Category\": {\n                \"id\": 4,\n                \"name\": \"Lifestyle\"\n            },\n            \"is_bookmark\": true\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "bookmark (Lutfi)",
+			"item": [
+				{
+					"name": "get by artikel (optional)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{url}}/bookmarks"
+					},
+					"response": [
+						{
+							"name": "get all",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": "{{url}}/bookmarks"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"true\",\n    \"message\": \"Success Get Bookmark by Article\",\n    \"errors\": [],\n    \"data\": {\n        \"id\": 1,\n        \"article_id\": 1,\n        \"user_id\": 1\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "get by user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{local}}/categories"
+					},
+					"response": [
+						{
+							"name": "get all",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "token",
+										"type": "text"
+									}
+								],
+								"url": "{{url}}/bookmarks/me"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"true\",\n    \"message\": \"Success Get Bookmark by User\",\n    \"errors\": [],\n    \"data\": [\n        {\n            \"id\": 1,\n            \"article_id\": 1,\n            \"user_id\": 1\n        },\n        {\n            \"id\": 2,\n            \"article_id\": 2,\n            \"user_id\": 1\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "add bookmark to artikel",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"articleId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/bookmarks/articles"
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "token",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url}}/bookmarks/articles/1"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"true\",\n    \"message\": \"Success Post Bookmark\",\n    \"errors\": [],\n    \"data\": {\n        \"id\": 1,\n        \"article_id\": 1,\n        \"user_id\": 1\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "delete bookmark to artikel",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"dinner\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/bookmarks/articles/:article_Id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"bookmarks",
+								"articles",
+								":article_Id"
+							],
+							"variable": [
+								{
+									"key": "article_Id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/bookmarks/articles/:article_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"bookmarks",
+										"articles",
+										":article_id"
+									],
+									"variable": [
+										{
+											"key": "article_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"true\",\n    \"message\": \"Success Delete Bookmark\",\n    \"errors\": [],\n    \"data\": {\n        \"id\": 1\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "auth (luthfi)",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"budi\",\r\n    \"email\": \"budi@example.com\",\r\n    \"password\": \"12345678\",\r\n    \"confirmPassword\": \"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/auth/register"
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"budi\",\r\n    \"email\": \"budi@example.com\",\r\n    \"password\": \"12345678\",\r\n    \"confirmPassword\": \"12345678\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url}}/auth/register"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"status\": true,\r\n    \"message\": \"Success Post Register\",\r\n    \"errors\": [],\r\n    \"data\": {\r\n        \"id\": 1,\r\n        \"email\": \"budi@example.com\",\r\n        \"name\": \"budi\"\r\n    }\r\n}"
+						},
+						{
+							"name": "500",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"budi\",\r\n    \"email\": \"budi@example.com\",\r\n    \"password\": \"12345678\",\r\n    \"confirmPassword\": \"12345678\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url}}/auth/register"
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"status\": false,\r\n    \"message\": \"Failed Post Register\",\r\n    \"errors\": [\"Internal Server Error\"],\r\n    \"data\": null\r\n}"
+						}
+					]
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"budi\",\r\n    \"email\": \"budi@example.com\",\r\n    \"password\": \"12345678\",\r\n    \"confirmPassword\": \"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{local}}/auth/register"
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"budi\",\r\n    \"email\": \"budi@example.com\",\r\n    \"password\": \"12345678\",\r\n    \"confirmPassword\": \"12345678\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url}}/auth/login"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"status\": true,\r\n    \"message\": \"Success Login\",\r\n    \"errors\": [],\r\n    \"data\": {\r\n        \"token\": \"318e18eugdwyue6td76\"\r\n    }\r\n}"
+						},
+						{
+							"name": "500",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"budi\",\r\n    \"email\": \"budi@example.com\",\r\n    \"password\": \"12345678\",\r\n    \"confirmPassword\": \"12345678\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{local}}/auth/login"
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"status\": false,\r\n    \"message\": \"Failed Login\",\r\n    \"errors\": [\"Invalid email or password\"],\r\n    \"data\": null\r\n}"
+						}
+					]
+				},
+				{
+					"name": "me",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"budi\",\r\n    \"email\": \"budi@example.com\",\r\n    \"password\": \"12345678\",\r\n    \"confirmPassword\": \"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/auth/me"
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "318e18eugdwyue6td76",
+										"type": "text"
+									}
+								],
+								"url": "{{url}}/auth/me"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"status\": true,\r\n    \"message\": \"Success Get Profile\",\r\n    \"errors\": [],\r\n    \"data\": {\r\n        \"email\": \"budi@example.com\",\r\n        \"name\": \"budi\",\r\n        \"photo_url\": \"woaidaoidjoijo.com\"\r\n    }\r\n}"
+						},
+						{
+							"name": "500",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{local}}/auth/me"
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": false,\n    \"message\": \"Failed Get Profile\",\n    \"errors\": [\"Token is invalid or expired\"],\n    \"data\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "me",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "photo",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": "{{url}}/auth/register"
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "photo",
+											"type": "file",
+											"src": []
+										}
+									]
+								},
+								"url": "{{url}}/auth/register"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"status\": true,\r\n    \"message\": \"Success Put Profile\",\r\n    \"errors\": [],\r\n    \"data\": {\r\n        \"message\": \"Success Put Profile\"\r\n    }\r\n}"
+						},
+						{
+							"name": "500",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "photo",
+											"type": "file",
+											"src": []
+										}
+									]
+								},
+								"url": "{{local}}/auth/register"
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": false,\n    \"message\": \"Failed Put Profile\",\n    \"errors\": [\"Name Must be 8 Character\"],\n    \"data\": null\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "categories {arief}",
+			"item": [
+				{
+					"name": "get all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{url}}/categories"
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": "{{url}}/categories"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"true\",\n    \"message\": \"Success Get All Categories\",\n    \"errors\": [],\n    \"data\": [\n        {\n            \"id\": \"1\",\n            \"name\": \"Western Food\"\n        },\n        {\n            \"id\": \"2\",\n            \"name\": \"Asian Food\"\n        }\n    ]\n\n}"
+						},
+						{
+							"name": "500",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": "{{local}}/categories"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": false,\n    \"message\": \"Failed Get Data Categories\",\n    \"errors\": [\"Internal Server Error\"],\n    \"data\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "get by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/categories/:id",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"categories",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": "{{local}}/categories"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"Success Get Category By Id\",\n    \"errors\": [],\n    \"data\": {\n        \n            \"id\": \"1\",\n            \"name\": \"Western Food\"\n        \n    }\n\n}"
+						},
+						{
+							"name": "500",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": "localhost:5000/api/v1/categories"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": false,\n    \"message\": \"Failed Get Data Categories\",\n    \"errors\": [\"Internal Server Error\"],\n    \"data\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"dinner\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{local}}/categories"
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"dinner\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/categories/:id",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"categories",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"status\": \"true\",\r\n    \"message\": \"Success Post Category\",\r\n    \"errors\": [],\r\n    \"data\": {\r\n        \"id\": 1\r\n    }\r\n}"
+						},
+						{
+							"name": "500",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"dinner\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{local}}/categories"
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"status\": false,\r\n    \"message\": \"Failed Post Category\",\r\n    \"errors\": [],\r\n    \"data\": null\r\n\r\n}"
+						}
+					]
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"dinner\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/categories/:id",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"categories",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"dinner\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/categories/:id",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"categories",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"status\": true,\r\n    \"message\": \"Success Update Category\",\r\n    \"errors\": [],\r\n    \"data\": {\r\n        \"id\": 1\r\n    }\r\n}"
+						},
+						{
+							"name": "500",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"dinner\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/categories/:id",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"categories",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"status\": false,\r\n    \"message\": \"Failed Update Category\",\r\n    \"errors\":[],\r\n    \"data\": null\r\n}"
+						}
+					]
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"dinner\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/categories/:id",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"categories",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"dinner\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/categories/:id",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"categories",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"Success Delete Category\",\n    \"errors\": [],\n    \"data\": {\n        \"id\": 1\n    }\n}"
+						},
+						{
+							"name": "500",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"dinner\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/categories/:id",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"categories",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": false,\n    \"message\": \"Failed Delete Category\",\n    \"errors\": [],\n    \"data\": null\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "like {lutfi}",
+			"item": [
+				{
+					"name": "get by artikel (optional)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{url}}/likes"
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "",
+										"type": "text"
+									}
+								],
+								"url": "{{url}}/likes"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"Success Get All Likes\",\n    \"errors\": [],\n    \"data\": [\n        {\n            \"id\": 1,\n            \"user_id\": 1,\n            \"article_id\": 4\n        },\n        {\n            \"id\": 2,\n            \"user_id\": 2,\n            \"article_id\": 5\n        }\n    ]\n}\n"
+						},
+						{
+							"name": "500",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": "{{local}}/like/articles"
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": false,\n    \"message\": \"Failed Get All Likes\",\n    \"errors\": [\n        \"Internal server error\"\n    ],\n    \"data\": null\n}\n"
+						}
+					]
+				},
+				{
+					"name": "get by user (optional)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/likes/:user_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"likes",
+								":user_id"
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/likes/:user_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"likes",
+										":user_id"
+									],
+									"variable": [
+										{
+											"key": "user_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"Success Get Like by ID\",\n    \"errors\": [],\n    \"data\": {\n        \"id\": 1,\n        \"user_id\": 1,\n        \"article_id\": 4\n}\n"
+						},
+						{
+							"name": "500",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{local}}/like/articles/:userid",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"like",
+										"articles",
+										":userid"
+									],
+									"variable": [
+										{
+											"key": "userid",
+											"value": ""
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": false,\n    \"message\": \"Failed Get Like by ID\",\n    \"errors\": [\n        \"Internal server error\"\n    ],\n    \"data\": null\n}\n"
+						}
+					]
+				},
+				{
+					"name": "add like to artikel (optional)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"dinner\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/likes/articles/:article_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"likes",
+								"articles",
+								":article_id"
+							],
+							"variable": [
+								{
+									"key": "article_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"user_id\": \"1\",\r\n    \"article_id\": 2\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/like/articles/:article_id",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"like",
+										"articles",
+										":article_id"
+									],
+									"variable": [
+										{
+											"key": "article_id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"status\": true,\r\n    \"message\": \"Success Post Like\",\r\n    \"errors\": [],\r\n    \"data\": {\r\n        \"id\": 3,\r\n        \"user_id\": 1,\r\n        \"article_id\": 4\r\n    }\r\n}\r\n"
+						},
+						{
+							"name": "500",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"dinner\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/like/articles/:article_id",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"like",
+										"articles",
+										":article_id"
+									],
+									"variable": [
+										{
+											"key": "article_id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": false,\n    \"message\": \"Failed Post Like\",\n    \"errors\": [\n        \"Internal server error\"\n    ],\n    \"data\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "delete like to artikel (optional)",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"dinner\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/likes/articles/:article_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"likes",
+								"articles",
+								":article_id"
+							],
+							"variable": [
+								{
+									"key": "article_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"dinner\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/likes/articles/:article_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"likes",
+										"articles",
+										":article_id"
+									],
+									"variable": [
+										{
+											"key": "article_id",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"Success Delete Like\",\n    \"errors\": [],\n    \"data\": {\n        \"id\": 3\n    }\n}"
+						},
+						{
+							"name": "500",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"dinner\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/like/articles/:article_id",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"like",
+										"articles",
+										":article_id"
+									],
+									"variable": [
+										{
+											"key": "article_id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": false,\n    \"message\": \"Failed Delete Like\",\n    \"errors\": [\n        \"Internal server error\"\n    ],\n    \"data\": null\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "local",
+			"value": "localhost:5000/api/v1",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
