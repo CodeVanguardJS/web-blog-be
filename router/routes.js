@@ -7,6 +7,10 @@ router.get('/api/hello', function (req, res) {
   res.status(200).json({ message: 'hello world' })
 })
 
+router.get('/api/health', function (req, res) {
+  res.status(200).json({ message: 'successfully hit api server' })
+})
+
 router.use('/auth', authRoute)
 router.use('/categories', categoryRoute)
 
