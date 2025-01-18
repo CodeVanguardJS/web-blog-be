@@ -5,7 +5,12 @@ const errorHandler = (err, req, res, next) => {
   if (err.name) {
     return errorResponse(res, err.message, err.errors, err.statusCode)
   } else {
-    return errorResponse(res, 'InternalServerError', 'You have an internal server error', err.statusCode)
+    return errorResponse(
+      res,
+      'InternalServerError',
+      'You have an internal server error',
+      err.statusCode
+    )
   }
   //   if (err.name === 'ErrorNotFound') {
   //     return res.status(404).json({ message: err.message })
