@@ -12,6 +12,17 @@ class CategoryService {
     }
   }
 
+  static async getById (id) {
+    try {
+      const category = await CategoryRepository.getById(+id)
+      return category
+    } catch (error) {
+      const err = new Error('Internal Server Error')
+      err.statusCode = 500
+      throw err
+    }
+  }
+
   static findName = async (name) => {
     try {
       if (!name) {
@@ -53,6 +64,13 @@ class CategoryService {
 
   static async update (id, data) {
     try {
+      const isCategoryExist = await CategoryRepository.getById(+id)
+      if (!isCategoryExist) {
+        const error = new Error('Category not found')
+        error.name = 'NotFound'
+        error.statusCode = 404
+        throw error
+      }
       const category = await CategoryRepository.update(+id, data)
       return category
     } catch (error) {
@@ -63,6 +81,13 @@ class CategoryService {
 
   static async delete (id) {
     try {
+      const isCategoryExist = await CategoryRepository.getById(+id)
+      if (!isCategoryExist) {
+        const error = new Error('Category not found')
+        error.name = 'NotFound'
+        error.statusCode = 404
+        throw error
+      }
       const category = await CategoryRepository.delete(+id)
       console.log(category)
       return category

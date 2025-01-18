@@ -31,13 +31,13 @@ class CategoryController {
       }
       const category = await CategoryService.create(name)
 
-      return successResponse(res, category, 'Success Post Categories')
+      return successResponse(res, category, 'Success Post Category', 201)
     } catch (error) {
       next(error)
     }
   }
 
-  static async update (req, res) {
+  static async update (req, res, next) {
     try {
       const { id } = req.params
       const { name } = req.body
@@ -47,9 +47,9 @@ class CategoryController {
         throw error
       }
       const category = await CategoryService.update(id, req.body)
-      return successResponse(res, category, 'Success Update Category')
+      return successResponse(res, category, 'Success Put Category')
     } catch (error) {
-      res.status(500).json({ message: error.message })
+      next(error)
     }
   }
 

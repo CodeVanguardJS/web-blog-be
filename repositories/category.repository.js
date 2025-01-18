@@ -11,6 +11,16 @@ class CategoryRepository {
     }
   }
 
+  static async getById (id) {
+    try {
+      const category = await prisma.category.findUnique({ where: { id } })
+      return category
+    } catch (error) {
+      console.log(error)
+      throw error
+    }
+  }
+
   static async findName (params) {
     try {
       const findName = await prisma.category.findFirst({ where: { name: params } })
