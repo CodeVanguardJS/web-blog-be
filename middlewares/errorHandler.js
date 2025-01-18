@@ -3,9 +3,9 @@ const { errorResponse } = require('../helpers/response')
 const errorHandler = (err, req, res, next) => {
   console.log(err)
   if (err.name) {
-    return errorResponse(res, err.name, err.errors, err.statusCode)
+    return errorResponse(res, err.message, err.errors, err.statusCode)
   } else {
-    return errorResponse(res, 'InternalServerError', err.errors, err.statusCode)
+    return errorResponse(res, 'InternalServerError', 'You have an internal server error', err.statusCode)
   }
   //   if (err.name === 'ErrorNotFound') {
   //     return res.status(404).json({ message: err.message })

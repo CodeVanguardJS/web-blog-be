@@ -31,12 +31,25 @@ class CategoryRepository {
     }
   }
 
-  static async update (req, res) {
-    return []
+  static async update (id, data) {
+    try {
+      const category = await prisma.category.update({ where: { id }, data })
+      return category
+    } catch (error) {
+      console.log(error)
+      throw error
+    }
   }
 
-  static async delete (req, res) {
-    return []
+  static async delete (id) {
+    try {
+      const category = await prisma.category.delete({ where: { id } })
+      console.log(category)
+      return category
+    } catch (error) {
+      console.log(error)
+      throw error
+    }
   }
 }
 

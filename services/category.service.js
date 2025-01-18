@@ -42,26 +42,35 @@ class CategoryService {
       const category = await CategoryRepository.create(name)
       return category
     } catch (error) {
+      if (error.code === 'P2002') {
+        const err = new Error('Category already exist')
+        err.statusCode = 409
+        throw err
+      }
+      throw error
+    }
+  }
+
+  static async update (id, data) {
+    try {
+      const category = await CategoryRepository.update(+id, data)
+      return category
+    } catch (error) {
       console.log(error)
       throw error
     }
   }
 
-  static async update (req, res) {
+  static async delete (id) {
     try {
-      const category = await CategoryRepository.update(req, res)
-      return res.status(200).json(category)
+      const category = await CategoryRepository.delete(+id)
+      console.log(category)
+      return category
     } catch (error) {
-      res.status(500).json({ message: error.message })
-    }
-  }
-
-  static async delete (req, res) {
-    try {
-      const category = await CategoryRepository.delete(req, res)
-      return res.status(200).json(category)
-    } catch (error) {
-      res.status(500).json({ message: error.message })
+      console.log(error)
+      const err = new Error('Internal Server Error')
+      err.statusCode = 500
+      throw err
     }
   }
 }
