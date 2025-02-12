@@ -93,9 +93,7 @@ class CategoryService {
       return category
     } catch (error) {
       console.log(error)
-      const err = new Error('Internal Server Error')
-      err.statusCode = 500
-      throw err
+      throw error
     }
   }
 }

@@ -17,10 +17,66 @@ model User {
   id        Int      @id @default(autoincrement())
   name      String
   email     String   @unique
+  password  String
+  photo_url String
   createdAt DateTime @default(now())
+
+  like     Like[]
+  bookmark bookmark[]
+  article Article[]
 }
 
 model Category {
-  id        Int      @id @default(autoincrement())
-  name      String   @unique
+  id   Int    @id @default(autoincrement())
+  name String @unique
+
+  article Article[]
+}
+
+model Article {
+  id          Int    @id @default(autoincrement())
+  title       String
+  total_like  Int
+  category_id Int
+  photo_url   String
+  description String
+  user_id Int
+
+  user User @relation(fields: [user_id], references: [id])
+  category Category   @relation(fields: [category_id], references: [id])
+  recipe   Recipe[]
+  like     Like[]
+  bookmark bookmark[]
+}
+
+model Recipe {
+  id         Int    @id @default(autoincrement())
+  article_id Int
+  content    String
+
+  article Article @relation(fields: [article_id], references: [id])
+}
+
+model Like {
+  id         Int     @id @default(autoincrement())
+  article_id Int
+  user_id    Int
+  status     Boolean
+
+  article Article @relation(fields: [article_id], references: [id])
+  user    User    @relation(fields: [user_id], references: [id])
+
+  @@unique([article_id, user_id])
+}
+
+model bookmark {
+  id         Int     @id @default(autoincrement())
+  article_id Int
+  user_id    Int
+  status     Boolean
+
+  article Article @relation(fields: [article_id], references: [id])
+  user    User    @relation(fields: [user_id], references: [id])
+
+  @@unique([article_id, user_id])
 }
