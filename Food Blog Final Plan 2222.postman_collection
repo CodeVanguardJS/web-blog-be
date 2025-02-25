@@ -15,9 +15,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/articles?limit=10&page=1&search=Title Article 1",
+							"raw": "{{local}}/articles",
 							"host": [
-								"{{url}}"
+								"{{local}}"
 							],
 							"path": [
 								"articles"
@@ -25,15 +25,18 @@
 							"query": [
 								{
 									"key": "limit",
-									"value": "10"
+									"value": "2",
+									"disabled": true
 								},
 								{
 									"key": "page",
-									"value": "1"
+									"value": "2",
+									"disabled": true
 								},
 								{
 									"key": "search",
-									"value": "Title Article 1"
+									"value": "Title Article 1",
+									"disabled": true
 								}
 							]
 						}
@@ -86,7 +89,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"status\": \"true\",\n    \"message\": \"Success Get All Article\",\n    \"errors\": [],\n    \"data\": [\n        {\n            \"id\": 1,\n            \"title\": \"Article 1\",\n            \"total_like\": 10,\n            \"category_id\": 1,\n            \"photo_url\": \"image1.png\",\n            \"description\": \"Description of article 1\",\n            \"user_id\": 1,\n            \"User\": {\n                \"id\": 1,\n                \"name\": \"Example User 1\",\n                \"photo_url\": \"user1.png\",\n                \"email\": \"user1@example.com\"\n            },\n            \"categories_id\": 1,\n            \"Category\": {\n                \"id\": 1,\n                \"name\": \"Technology\"\n            },\n            \"is_bookmark\": true\n        },\n        {\n            \"id\": 2,\n            \"title\": \"Article 2\",\n            \"total_like\": 5,\n            \"category_id\": 2,\n            \"photo_url\": \"image2.png\",\n            \"description\": \"Description of article 2\",\n            \"user_id\": 2,\n            \"User\": {\n                \"id\": 2,\n                \"name\": \"Example User 2\",\n                \"photo_url\": \"user2.png\",\n                \"email\": \"user2@example.com\"\n            },\n            \"categories_id\": 2,\n            \"Category\": {\n                \"id\": 2,\n                \"name\": \"Health\"\n            },\n            \"is_bookmark\": false\n        },\n        {\n            \"id\": 3,\n            \"title\": \"Article 3\",\n            \"total_like\": 7,\n            \"category_id\": 3,\n            \"photo_url\": \"image3.png\",\n            \"description\": \"Description of article 3\",\n            \"user_id\": 3,\n            \"User\": {\n                \"id\": 3,\n                \"name\": \"Example User 3\",\n                \"photo_url\": \"user3.png\",\n                \"email\": \"user3@example.com\"\n            },\n            \"categories_id\": 3,\n            \"Category\": {\n                \"id\": 3,\n                \"name\": \"Sports\"\n            },\n            \"is_bookmark\": true\n        },\n        {\n            \"id\": 4,\n            \"title\": \"Article 4\",\n            \"total_like\": 15,\n            \"category_id\": 1,\n            \"photo_url\": \"image4.png\",\n            \"description\": \"Description of article 4\",\n            \"user_id\": 1,\n            \"User\": {\n                \"id\": 1,\n                \"name\": \"Example User 1\",\n                \"photo_url\": \"user1.png\",\n                \"email\": \"user1@example.com\"\n            },\n            \"categories_id\": 1,\n            \"Category\": {\n                \"id\": 1,\n                \"name\": \"Technology\"\n            },\n            \"is_bookmark\": false\n        },\n        {\n            \"id\": 5,\n            \"title\": \"Article 5\",\n            \"total_like\": 3,\n            \"category_id\": 4,\n            \"photo_url\": \"image5.png\",\n            \"description\": \"Description of article 5\",\n            \"user_id\": 4,\n            \"User\": {\n                \"id\": 4,\n                \"name\": \"Example User 4\",\n                \"photo_url\": \"user4.png\",\n                \"email\": \"user4@example.com\"\n            },\n            \"categories_id\": 4,\n            \"Category\": {\n                \"id\": 4,\n                \"name\": \"Lifestyle\"\n            },\n            \"is_bookmark\": true\n        },\n        {\n            \"id\": 6,\n            \"title\": \"Article 6\",\n            \"total_like\": 8,\n            \"category_id\": 2,\n            \"photo_url\": \"image6.png\",\n            \"description\": \"Description of article 6\",\n            \"user_id\": 2,\n            \"User\": {\n                \"id\": 2,\n                \"name\": \"Example User 2\",\n                \"photo_url\": \"user2.png\",\n                \"email\": \"user2@example.com\"\n            },\n            \"categories_id\": 2,\n            \"Category\": {\n                \"id\": 2,\n                \"name\": \"Health\"\n            },\n            \"is_bookmark\": false\n        },\n        {\n            \"id\": 7,\n            \"title\": \"Article 7\",\n            \"total_like\": 9,\n            \"category_id\": 3,\n            \"photo_url\": \"image7.png\",\n            \"description\": \"Description of article 7\",\n            \"user_id\": 3,\n            \"User\": {\n                \"id\": 3,\n                \"name\": \"Example User 3\",\n                \"photo_url\": \"user3.png\",\n                \"email\": \"user3@example.com\"\n            },\n            \"categories_id\": 3,\n            \"Category\": {\n                \"id\": 3,\n                \"name\": \"Sports\"\n            },\n            \"is_bookmark\": true\n        },\n        {\n            \"id\": 8,\n            \"title\": \"Article 8\",\n            \"total_like\": 12,\n            \"category_id\": 5,\n            \"photo_url\": \"image8.png\",\n            \"description\": \"Description of article 8\",\n            \"user_id\": 5,\n            \"User\": {\n                \"id\": 5,\n                \"name\": \"Example User 5\",\n                \"photo_url\": \"user5.png\",\n                \"email\": \"user5@example.com\"\n            },\n            \"categories_id\": 5,\n            \"Category\": {\n                \"id\": 5,\n                \"name\": \"Travel\"\n            },\n            \"is_bookmark\": false\n        },\n        {\n            \"id\": 9,\n            \"title\": \"Article 9\",\n            \"total_like\": 4,\n            \"category_id\": 1,\n            \"photo_url\": \"image9.png\",\n            \"description\": \"Description of article 9\",\n            \"user_id\": 1,\n            \"User\": {\n                \"id\": 1,\n                \"name\": \"Example User 1\",\n                \"photo_url\": \"user1.png\",\n                \"email\": \"user1@example.com\"\n            },\n            \"categories_id\": 1,\n            \"Category\": {\n                \"id\": 1,\n                \"name\": \"Technology\"\n            },\n            \"is_bookmark\": true\n        },\n        {\n            \"id\": 10,\n            \"title\": \"Article 10\",\n            \"total_like\": 6,\n            \"category_id\": 4,\n            \"photo_url\": \"image10.png\",\n            \"description\": \"Description of article 10\",\n            \"user_id\": 4,\n            \"User\": {\n                \"id\": 4,\n                \"name\": \"Example User 4\",\n                \"photo_url\": \"user4.png\",\n                \"email\": \"user4@example.com\"\n            },\n            \"categories_id\": 4,\n            \"Category\": {\n                \"id\": 4,\n                \"name\": \"Lifestyle\"\n            },\n            \"is_bookmark\": false\n        },\n        {\n            \"id\": 11,\n            \"title\": \"Article 11\",\n            \"total_like\": 11,\n            \"category_id\": 6,\n            \"photo_url\": \"image11.png\",\n            \"description\": \"Description of article 11\",\n            \"user_id\": 6,\n            \"User\": {\n                \"id\": 6,\n                \"name\": \"Example User 6\",\n                \"photo_url\": \"user6.png\",\n                \"email\": \"user6@example.com\"\n            },\n            \"categories_id\": 6,\n            \"Category\": {\n                \"id\": 6,\n                \"name\": \"Education\"\n            },\n            \"is_bookmark\": true\n        },\n        {\n            \"id\": 12,\n            \"title\": \"Article 12\",\n            \"total_like\": 7,\n            \"category_id\": 5,\n            \"photo_url\": \"image12.png\",\n            \"description\": \"Description of article 12\",\n            \"user_id\": 5,\n            \"User\": {\n                \"id\": 5,\n                \"name\": \"Example User 5\",\n                \"photo_url\": \"user5.png\",\n                \"email\": \"user5@example.com\"\n            },\n            \"categories_id\": 5,\n            \"Category\": {\n                \"id\": 5,\n                \"name\": \"Travel\"\n            },\n            \"is_bookmark\": false\n        },\n        {\n            \"id\": 13,\n            \"title\": \"Article 13\",\n            \"total_like\": 18,\n            \"category_id\": 7,\n            \"photo_url\": \"image13.png\",\n            \"description\": \"Description of article 13\",\n            \"user_id\": 7,\n            \"User\": {\n                \"id\": 7,\n                \"name\": \"Example User 7\",\n                \"photo_url\": \"user7.png\",\n                \"email\": \"user7@example.com\"\n            },\n            \"categories_id\": 7,\n            \"Category\": {\n                \"id\": 7,\n                \"name\": \"Entertainment\"\n            },\n            \"is_bookmark\": true\n        },\n        {\n            \"id\": 14,\n            \"title\": \"Article 14\",\n            \"total_like\": 2,\n            \"category_id\": 4,\n            \"photo_url\": \"image14.png\",\n            \"description\": \"Description of article 14\",\n            \"user_id\": 4,\n            \"User\": {\n                \"id\": 4,\n                \"name\": \"Example User 4\",\n                \"photo_url\": \"user4.png\",\n                \"email\": \"user4@example.com\"\n            },\n            \"categories_id\": 4,\n            \"Category\": {\n                \"id\": 4,\n                \"name\": \"Lifestyle\"\n            },\n            \"is_bookmark\": false\n        },\n        {\n            \"id\": 15,\n            \"title\": \"Article 15\",\n            \"total_like\": 14,\n            \"category_id\": 2,\n            \"photo_url\": \"image15.png\",\n            \"description\": \"Description of article 15\",\n            \"user_id\": 2,\n            \"User\": {\n                \"id\": 2,\n                \"name\": \"Example User 2\",\n                \"photo_url\": \"user2.png\",\n                \"email\": \"user2@example.com\"\n            },\n            \"categories_id\": 2,\n            \"Category\": {\n                \"id\": 2,\n                \"name\": \"Health\"\n            },\n            \"is_bookmark\": true\n        }\n    ]\n}"
+							"body": "{\n    \"status\": \"true\",\n    \"message\": \"Success Get All Article\",\n    \"errors\": [],\n    \"data\": {\n        \"page\": 1,\n        \"limit\": 10,\n        \"data\": [\n            {\n                \"id\": 1,\n                \"title\": \"Article 1\",\n                \"total_like\": 10,\n                \"category_id\": 1,\n                \"photo_url\": \"image1.png\",\n                \"description\": \"Description of article 1\",\n                \"user_id\": 1,\n                \"User\": {\n                    \"id\": 1,\n                    \"name\": \"Example User 1\",\n                    \"photo_url\": \"user1.png\",\n                    \"email\": \"user1@example.com\"\n                },\n                \"categories_id\": 1,\n                \"Category\": {\n                    \"id\": 1,\n                    \"name\": \"Technology\"\n                },\n                \"is_bookmark\": true\n            },\n            {\n                \"id\": 2,\n                \"title\": \"Article 2\",\n                \"total_like\": 5,\n                \"category_id\": 2,\n                \"photo_url\": \"image2.png\",\n                \"description\": \"Description of article 2\",\n                \"user_id\": 2,\n                \"User\": {\n                    \"id\": 2,\n                    \"name\": \"Example User 2\",\n                    \"photo_url\": \"user2.png\",\n                    \"email\": \"user2@example.com\"\n                },\n                \"categories_id\": 2,\n                \"Category\": {\n                    \"id\": 2,\n                    \"name\": \"Health\"\n                },\n                \"is_bookmark\": false\n            },\n            {\n                \"id\": 3,\n                \"title\": \"Article 3\",\n                \"total_like\": 7,\n                \"category_id\": 3,\n                \"photo_url\": \"image3.png\",\n                \"description\": \"Description of article 3\",\n                \"user_id\": 3,\n                \"User\": {\n                    \"id\": 3,\n                    \"name\": \"Example User 3\",\n                    \"photo_url\": \"user3.png\",\n                    \"email\": \"user3@example.com\"\n                },\n                \"categories_id\": 3,\n                \"Category\": {\n                    \"id\": 3,\n                    \"name\": \"Sports\"\n                },\n                \"is_bookmark\": true\n            },\n            {\n                \"id\": 4,\n                \"title\": \"Article 4\",\n                \"total_like\": 15,\n                \"category_id\": 1,\n                \"photo_url\": \"image4.png\",\n                \"description\": \"Description of article 4\",\n                \"user_id\": 1,\n                \"User\": {\n                    \"id\": 1,\n                    \"name\": \"Example User 1\",\n                    \"photo_url\": \"user1.png\",\n                    \"email\": \"user1@example.com\"\n                },\n                \"categories_id\": 1,\n                \"Category\": {\n                    \"id\": 1,\n                    \"name\": \"Technology\"\n                },\n                \"is_bookmark\": false\n            },\n            {\n                \"id\": 5,\n                \"title\": \"Article 5\",\n                \"total_like\": 3,\n                \"category_id\": 4,\n                \"photo_url\": \"image5.png\",\n                \"description\": \"Description of article 5\",\n                \"user_id\": 4,\n                \"User\": {\n                    \"id\": 4,\n                    \"name\": \"Example User 4\",\n                    \"photo_url\": \"user4.png\",\n                    \"email\": \"user4@example.com\"\n                },\n                \"categories_id\": 4,\n                \"Category\": {\n                    \"id\": 4,\n                    \"name\": \"Lifestyle\"\n                },\n                \"is_bookmark\": true\n            },\n            {\n                \"id\": 6,\n                \"title\": \"Article 6\",\n                \"total_like\": 8,\n                \"category_id\": 2,\n                \"photo_url\": \"image6.png\",\n                \"description\": \"Description of article 6\",\n                \"user_id\": 2,\n                \"User\": {\n                    \"id\": 2,\n                    \"name\": \"Example User 2\",\n                    \"photo_url\": \"user2.png\",\n                    \"email\": \"user2@example.com\"\n                },\n                \"categories_id\": 2,\n                \"Category\": {\n                    \"id\": 2,\n                    \"name\": \"Health\"\n                },\n                \"is_bookmark\": false\n            },\n            {\n                \"id\": 7,\n                \"title\": \"Article 7\",\n                \"total_like\": 9,\n                \"category_id\": 3,\n                \"photo_url\": \"image7.png\",\n                \"description\": \"Description of article 7\",\n                \"user_id\": 3,\n                \"User\": {\n                    \"id\": 3,\n                    \"name\": \"Example User 3\",\n                    \"photo_url\": \"user3.png\",\n                    \"email\": \"user3@example.com\"\n                },\n                \"categories_id\": 3,\n                \"Category\": {\n                    \"id\": 3,\n                    \"name\": \"Sports\"\n                },\n                \"is_bookmark\": true\n            },\n            {\n                \"id\": 8,\n                \"title\": \"Article 8\",\n                \"total_like\": 12,\n                \"category_id\": 5,\n                \"photo_url\": \"image8.png\",\n                \"description\": \"Description of article 8\",\n                \"user_id\": 5,\n                \"User\": {\n                    \"id\": 5,\n                    \"name\": \"Example User 5\",\n                    \"photo_url\": \"user5.png\",\n                    \"email\": \"user5@example.com\"\n                },\n                \"categories_id\": 5,\n                \"Category\": {\n                    \"id\": 5,\n                    \"name\": \"Travel\"\n                },\n                \"is_bookmark\": false\n            },\n            {\n                \"id\": 9,\n                \"title\": \"Article 9\",\n                \"total_like\": 4,\n                \"category_id\": 1,\n                \"photo_url\": \"image9.png\",\n                \"description\": \"Description of article 9\",\n                \"user_id\": 1,\n                \"User\": {\n                    \"id\": 1,\n                    \"name\": \"Example User 1\",\n                    \"photo_url\": \"user1.png\",\n                    \"email\": \"user1@example.com\"\n                },\n                \"categories_id\": 1,\n                \"Category\": {\n                    \"id\": 1,\n                    \"name\": \"Technology\"\n                },\n                \"is_bookmark\": true\n            },\n            {\n                \"id\": 10,\n                \"title\": \"Article 10\",\n                \"total_like\": 6,\n                \"category_id\": 4,\n                \"photo_url\": \"image10.png\",\n                \"description\": \"Description of article 10\",\n                \"user_id\": 4,\n                \"User\": {\n                    \"id\": 4,\n                    \"name\": \"Example User 4\",\n                    \"photo_url\": \"user4.png\",\n                    \"email\": \"user4@example.com\"\n                },\n                \"categories_id\": 4,\n                \"Category\": {\n                    \"id\": 4,\n                    \"name\": \"Lifestyle\"\n                },\n                \"is_bookmark\": false\n            },\n            {\n                \"id\": 11,\n                \"title\": \"Article 11\",\n                \"total_like\": 11,\n                \"category_id\": 6,\n                \"photo_url\": \"image11.png\",\n                \"description\": \"Description of article 11\",\n                \"user_id\": 6,\n                \"User\": {\n                    \"id\": 6,\n                    \"name\": \"Example User 6\",\n                    \"photo_url\": \"user6.png\",\n                    \"email\": \"user6@example.com\"\n                },\n                \"categories_id\": 6,\n                \"Category\": {\n                    \"id\": 6,\n                    \"name\": \"Education\"\n                },\n                \"is_bookmark\": true\n            },\n            {\n                \"id\": 12,\n                \"title\": \"Article 12\",\n                \"total_like\": 7,\n                \"category_id\": 5,\n                \"photo_url\": \"image12.png\",\n                \"description\": \"Description of article 12\",\n                \"user_id\": 5,\n                \"User\": {\n                    \"id\": 5,\n                    \"name\": \"Example User 5\",\n                    \"photo_url\": \"user5.png\",\n                    \"email\": \"user5@example.com\"\n                },\n                \"categories_id\": 5,\n                \"Category\": {\n                    \"id\": 5,\n                    \"name\": \"Travel\"\n                },\n                \"is_bookmark\": false\n            },\n            {\n                \"id\": 13,\n                \"title\": \"Article 13\",\n                \"total_like\": 18,\n                \"category_id\": 7,\n                \"photo_url\": \"image13.png\",\n                \"description\": \"Description of article 13\",\n                \"user_id\": 7,\n                \"User\": {\n                    \"id\": 7,\n                    \"name\": \"Example User 7\",\n                    \"photo_url\": \"user7.png\",\n                    \"email\": \"user7@example.com\"\n                },\n                \"categories_id\": 7,\n                \"Category\": {\n                    \"id\": 7,\n                    \"name\": \"Entertainment\"\n                },\n                \"is_bookmark\": true\n            },\n            {\n                \"id\": 14,\n                \"title\": \"Article 14\",\n                \"total_like\": 2,\n                \"category_id\": 4,\n                \"photo_url\": \"image14.png\",\n                \"description\": \"Description of article 14\",\n                \"user_id\": 4,\n                \"User\": {\n                    \"id\": 4,\n                    \"name\": \"Example User 4\",\n                    \"photo_url\": \"user4.png\",\n                    \"email\": \"user4@example.com\"\n                },\n                \"categories_id\": 4,\n                \"Category\": {\n                    \"id\": 4,\n                    \"name\": \"Lifestyle\"\n                },\n                \"is_bookmark\": false\n            },\n            {\n                \"id\": 15,\n                \"title\": \"Article 15\",\n                \"total_like\": 14,\n                \"category_id\": 2,\n                \"photo_url\": \"image15.png\",\n                \"description\": \"Description of article 15\",\n                \"user_id\": 2,\n                \"User\": {\n                    \"id\": 2,\n                    \"name\": \"Example User 2\",\n                    \"photo_url\": \"user2.png\",\n                    \"email\": \"user2@example.com\"\n                },\n                \"categories_id\": 2,\n                \"Category\": {\n                    \"id\": 2,\n                    \"name\": \"Health\"\n                },\n                \"is_bookmark\": true\n            }\n        ]\n    }\n}"
 						},
 						{
 							"name": "search",
@@ -194,9 +197,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/articles/:id",
+							"raw": "{{local}}/articles/:id",
 							"host": [
-								"{{url}}"
+								"{{local}}"
 							],
 							"path": [
 								"articles",
@@ -205,7 +208,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": ""
+									"value": "101"
 								}
 							]
 						}
@@ -217,9 +220,9 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/articles/:id",
+									"raw": "{{local}}/articles/:id",
 									"host": [
-										"{{url}}"
+										"{{local}}"
 									],
 									"path": [
 										"articles",
@@ -228,7 +231,7 @@
 									"variable": [
 										{
 											"key": "id",
-											"value": "1"
+											"value": "101"
 										}
 									]
 								}
@@ -238,14 +241,40 @@
 							"_postman_previewlanguage": "json",
 							"header": [
 								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
 									"key": "Content-Type",
-									"value": "application/json",
-									"description": "",
-									"type": "text"
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1211"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4bb-88cMK1yAHrIpa3X9+jdU6CtA7v0\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 25 Feb 2025 13:43:59 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"status\": \"true\",\n    \"message\": \"Success Get All Article\",\n    \"errors\": [],\n    \"data\": {\n            \"id\": 1,\n            \"title\": \"Article 1\",\n            \"total_like\": 10,\n            \"category_id\": 1,\n            \"photo_url\": \"image1.png\",\n            \"description\": \"Description of article 1\",\n            \"user_id\": 1,\n            \"User\": {\n                \"id\": 1,\n                \"name\": \"Example User 1\",\n                \"photo_url\": \"user1.png\",\n                \"email\": \"user1@example.com\"\n            },\n            \"categories_id\": 4,\n            \"Category\": {\n                \"id\": 4,\n                \"name\": \"Lifestyle\"\n            },\n            \"is_bookmarked\": true,\n            \"is_liked\": true\n        }\n}"
+							"body": "{\n    \"status\": true,\n    \"data\": {\n        \"id\": 101,\n        \"title\": \"Fried Fisher\",\n        \"total_like\": 3,\n        \"category_id\": 109,\n        \"user_id\": 101,\n        \"photo_url\": \"https://images.immediate.co.uk/production/volatile/sites/30/2020/08/chorizo-mozarella-gnocchi-bake-cropped-9ab73a3.jpg\",\n        \"description\": \"A delicious fried dish with fresh fish, seasoned and crispy.\",\n        \"category\": {\n            \"id\": 109,\n            \"name\": \"Soups\"\n        },\n        \"user\": {\n            \"id\": 101,\n            \"name\": \"Pierrette Yushkov\",\n            \"photo_url\": \"https://assets.ajio.com/medias/sys_master/root/20240612/4Ydg/666b2b216f60443f311d230d/-473Wx593H-700076737-blue-MODEL.jpg\",\n            \"email\": \"pierrette.yushkov@example.com\"\n        },\n        \"recipes\": [\n            {\n                \"id\": 101,\n                \"article_id\": 101,\n                \"content\": \"Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est. Phasellus sit amet erat.\"\n            },\n            {\n                \"id\": 104,\n                \"article_id\": 101,\n                \"content\": \"Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.\"\n            }\n        ],\n        \"is_bookmark\": true,\n        \"is_like\": true\n    },\n    \"message\": \"Success Get Category By Id\",\n    \"errors\": []\n}"
 						}
 					]
 				},
@@ -259,37 +288,37 @@
 							"formdata": [
 								{
 									"key": "title",
-									"value": "",
+									"value": "ajdjakljfla",
 									"type": "text"
 								},
 								{
 									"key": "photo",
-									"value": "",
-									"type": "text"
+									"type": "file",
+									"src": "/C:/Users/msyai/OneDrive/Pictures/1.jpg"
 								},
 								{
-									"key": "category_id",
-									"value": "",
+									"key": "categoryId",
+									"value": "101",
 									"type": "text"
 								},
 								{
 									"key": "description",
-									"value": "",
+									"value": "adfad",
 									"type": "text"
 								},
 								{
 									"key": "recipes",
-									"value": "",
+									"value": "hfsdgdf",
 									"type": "text"
 								},
 								{
 									"key": "recipes",
-									"value": "",
+									"value": "ertwertw",
 									"type": "text"
 								}
 							]
 						},
-						"url": "{{url}}/articles"
+						"url": "{{local}}/articles"
 					},
 					"response": [
 						{
@@ -362,122 +391,6 @@
 					]
 				},
 				{
-					"name": "update",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"dinner\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{url}}/articles/:id",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"articles",
-								":id"
-							],
-							"variable": [
-								{
-									"key": "id",
-									"value": ""
-								}
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "200",
-							"originalRequest": {
-								"method": "PUT",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "token",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "title",
-											"value": "Article 1 Update",
-											"type": "text"
-										},
-										{
-											"key": "photo",
-											"type": "file",
-											"src": "/C:/Users/msyai/OneDrive/Pictures/1.jpg"
-										},
-										{
-											"key": "description",
-											"value": "description 1 update",
-											"type": "text"
-										},
-										{
-											"key": "category_id",
-											"value": "1",
-											"type": "text"
-										},
-										{
-											"key": "recipes",
-											"value": "recipes 1",
-											"type": "text"
-										},
-										{
-											"key": "recipes",
-											"value": "recipes 2",
-											"type": "text"
-										}
-									],
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{url}}/articles/:id",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"articles",
-										":id"
-									],
-									"variable": [
-										{
-											"key": "id",
-											"value": "1"
-										}
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "application/json",
-									"description": "",
-									"type": "text"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"status\": \"true\",\n    \"message\": \"Success PUT Article\",\n    \"errors\": [],\n    \"data\": {\n        \"id\": 1\n    }\n}"
-						}
-					]
-				},
-				{
 					"name": "delete",
 					"request": {
 						"method": "DELETE",
@@ -492,9 +405,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/articles/:id",
+							"raw": "{{local}}/articles/:id",
 							"host": [
-								"{{url}}"
+								"{{local}}"
 							],
 							"path": [
 								"articles",
@@ -503,7 +416,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": ""
+									"value": "1"
 								}
 							]
 						}
@@ -623,6 +536,178 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"status\": \"true\",\n    \"message\": \"Success Get Article By Categories\",\n    \"errors\": [],\n    \"data\": [\n        {\n            \"id\": 1,\n            \"title\": \"Article 1\",\n            \"total_like\": 10,\n            \"category_id\": 1,\n            \"photo_url\": \"image1.png\",\n            \"description\": \"Description of article 1\",\n            \"user_id\": 1,\n            \"User\": {\n                \"id\": 1,\n                \"name\": \"Example User 1\",\n                \"photo_url\": \"user1.png\",\n                \"email\": \"user1@example.com\"\n            },\n            \"categories_id\": 4,\n            \"Category\": {\n                \"id\": 4,\n                \"name\": \"Lifestyle\"\n            },\n            \"is_bookmark\": true\n        },\n        {\n            \"id\": 2,\n            \"title\": \"Article 2\",\n            \"total_like\": 5,\n            \"category_id\": 2,\n            \"photo_url\": \"image2.png\",\n            \"description\": \"Description of article 2\",\n            \"user_id\": 2,\n            \"User\": {\n                \"id\": 2,\n                \"name\": \"Example User 2\",\n                \"photo_url\": \"user2.png\",\n                \"email\": \"user2@example.com\"\n            },\n            \"categories_id\": 4,\n            \"Category\": {\n                \"id\": 4,\n                \"name\": \"Lifestyle\"\n            },\n            \"is_bookmark\": false\n        },\n        {\n            \"id\": 3,\n            \"title\": \"Article 3\",\n            \"total_like\": 7,\n            \"category_id\": 3,\n            \"photo_url\": \"image3.png\",\n            \"description\": \"Description of article 3\",\n            \"user_id\": 3,\n            \"User\": {\n                \"id\": 3,\n                \"name\": \"Example User 3\",\n                \"photo_url\": \"user3.png\",\n                \"email\": \"user3@example.com\"\n            },\n            \"categories_id\": 4,\n            \"Category\": {\n                \"id\": 4,\n                \"name\": \"Lifestyle\"\n            },\n            \"is_bookmark\": true\n        },\n        {\n            \"id\": 4,\n            \"title\": \"Article 4\",\n            \"total_like\": 15,\n            \"category_id\": 1,\n            \"photo_url\": \"image4.png\",\n            \"description\": \"Description of article 4\",\n            \"user_id\": 1,\n            \"User\": {\n                \"id\": 1,\n                \"name\": \"Example User 1\",\n                \"photo_url\": \"user1.png\",\n                \"email\": \"user1@example.com\"\n            },\n            \"categories_id\": 4,\n            \"Category\": {\n                \"id\": 4,\n                \"name\": \"Lifestyle\"\n            },\n            \"is_bookmark\": false\n        },\n        {\n            \"id\": 5,\n            \"title\": \"Article 5\",\n            \"total_like\": 3,\n            \"category_id\": 4,\n            \"photo_url\": \"image5.png\",\n            \"description\": \"Description of article 5\",\n            \"user_id\": 4,\n            \"User\": {\n                \"id\": 4,\n                \"name\": \"Example User 4\",\n                \"photo_url\": \"user4.png\",\n                \"email\": \"user4@example.com\"\n            },\n            \"categories_id\": 4,\n            \"Category\": {\n                \"id\": 4,\n                \"name\": \"Lifestyle\"\n            },\n            \"is_bookmark\": true\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "upload",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/msyai/OneDrive/Pictures/1.jpg"
+								}
+							]
+						},
+						"url": "{{local}}/articles/upload"
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Article 1 Update",
+									"type": "text"
+								},
+								{
+									"key": "photo",
+									"type": "file",
+									"src": "/C:/Users/msyai/OneDrive/Pictures/1.jpg"
+								},
+								{
+									"key": "description",
+									"value": "description 1 update",
+									"type": "text"
+								},
+								{
+									"key": "categoryId",
+									"value": "102",
+									"type": "text"
+								},
+								{
+									"key": "recipes",
+									"value": "recipes 1",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "recipes",
+									"value": "recipes 2",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{local}}/articles/:id",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"articles",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 Copy",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "token",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "Article 1 Update",
+											"type": "text"
+										},
+										{
+											"key": "photo",
+											"type": "file",
+											"src": "/C:/Users/msyai/OneDrive/Pictures/1.jpg"
+										},
+										{
+											"key": "description",
+											"value": "description 1 update",
+											"type": "text"
+										},
+										{
+											"key": "category_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "recipes",
+											"value": "recipes 1",
+											"type": "text"
+										},
+										{
+											"key": "recipes",
+											"value": "recipes 2",
+											"type": "text"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/articles/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"articles",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"true\",\n    \"message\": \"Success PUT Article\",\n    \"errors\": [],\n    \"data\": {\n        \"id\": 1\n    }\n}"
 						}
 					]
 				}
@@ -1191,7 +1276,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "{{url}}/categories"
+						"url": "{{local}}/categories"
 					},
 					"response": [
 						{
@@ -1256,9 +1341,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/categories/:id",
+							"raw": "{{local}}/categories/:id",
 							"host": [
-								"{{url}}"
+								"{{local}}"
 							],
 							"path": [
 								"categories",
@@ -1336,14 +1421,14 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"dinner\"\r\n}",
+							"raw": "{\r\n    \"name\": \"lunch\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": "{{url}}/categories"
+						"url": "{{local}}/categories"
 					},
 					"response": [
 						{
@@ -1411,7 +1496,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"dinner\"\r\n}",
+							"raw": "{\r\n    \"name\": \"special dinner\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1419,9 +1504,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/categories/:id",
+							"raw": "{{local}}/categories/:id",
 							"host": [
-								"{{url}}"
+								"{{local}}"
 							],
 							"path": [
 								"categories",
@@ -1430,7 +1515,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": ""
+									"value": "100"
 								}
 							]
 						}
@@ -1547,9 +1632,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/categories/:id",
+							"raw": "{{local}}/categories/:id",
 							"host": [
-								"{{url}}"
+								"{{local}}"
 							],
 							"path": [
 								"categories",
@@ -1558,7 +1643,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": ""
+									"value": "300"
 								}
 							]
 						}
@@ -2121,6 +2206,111 @@
 							"body": "{\n    \"status\": false,\n    \"message\": \"Failed Delete Like\",\n    \"errors\": [\n        \"Internal server error\"\n    ],\n    \"data\": null\n}"
 						}
 					]
+				}
+			]
+		},
+		{
+			"name": "recipe",
+			"item": [
+				{
+					"name": "getall",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{local}}/recipes"
+					},
+					"response": []
+				},
+				{
+					"name": "createmany",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"data\": [\r\n        {\r\n            \"content\": \"akjdlafjald\"\r\n        },\r\n        {\r\n            \"content\": \"kjaldfjalsmlsmakd\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/recipes/articles/:idArticle",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"recipes",
+								"articles",
+								":idArticle"
+							],
+							"variable": [
+								{
+									"key": "idArticle",
+									"value": "11"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"article_id\": 4,\r\n    \"content\": \"pqeirpqiewprq\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/recipes/:id",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"recipes",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/recipes/:id",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"recipes",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		}
