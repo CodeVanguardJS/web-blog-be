@@ -25,6 +25,30 @@ class ArticleRepository {
     }
   }
 
+  static async getByCategory (id) {
+    try {
+      const article = await prisma.article.findMany({
+        where: { category_id: id },
+        include: {
+          bookmark: true,
+          category: true,
+          user: {
+            select: {
+              id: true,
+              name: true,
+              photo_url: true,
+              email: true
+            }
+          }
+        }
+      })
+      return article
+    } catch (error) {
+      console.log(error)
+      throw error
+    }
+  }
+
   static async getTotalArticle (filter) {
     try {
       const article = await prisma.article.count({
