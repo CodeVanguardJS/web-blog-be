@@ -1,7 +1,24 @@
 const cloudinaryUpload = require('../libs/cloudinary')
 const ArticleRepository = require('../repositories/article.repository')
+const CategoryRepository = require('../repositories/category.repository')
 
 class ArticleService {
+  static async getByCategory (id) {
+    try {
+      const isCategoryExist = await CategoryRepository.getById(+id)
+      if (!isCategoryExist) {
+        const error = new Error('Category not found.')
+        error.name = 'ErrorNotFound'
+        throw error
+      }
+      const article = await ArticleRepository.getByCategory(+id)
+      return article
+    } catch (error) {
+      console.log(error)
+      throw error
+    }
+  }
+
   static async getAll (params) {
     try {
       let { page, limit, search } = params

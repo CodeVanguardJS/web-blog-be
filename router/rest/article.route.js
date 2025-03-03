@@ -4,6 +4,7 @@ const upload = require('../../middlewares/multer')
 const router = express.Router()
 
 router.get('/', ArticleController.getAll)
+router.get('/category/:id', ArticleController.getByCategory)
 router.post('/', upload.single('photo'), ArticleController.create)
 router.get('/:id', ArticleController.getById)
 router.put('/:id', upload.single('photo'), ArticleController.update)
