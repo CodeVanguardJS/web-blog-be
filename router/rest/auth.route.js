@@ -1,10 +1,13 @@
 const express = require('express')
+const AuthController = require('../../controllers/auth.controller')
+const authMiddleware = require('../../middlewares/authMiddleware')
+const upload = require('../../middlewares/multer')
+
 const router = express.Router()
-// const authController = require('../../controllers/auth.controller')
 
-// TODO: create auth route
-
-// router.post('/login', authController.login)
-// router.post('/register', authController.register)
+router.post('/register', AuthController.register)
+router.post('/login', AuthController.login)
+router.get('/me', authMiddleware, AuthController.getProfile)
+router.put('/me', authMiddleware, upload.single('photo'), AuthController.updateProfile)
 
 module.exports = router
