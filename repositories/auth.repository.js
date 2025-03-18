@@ -22,6 +22,7 @@ class AuthRepository {
   }
 
   static async update (id, data) {
+    console.log(`id: ${id}, data: ${data}`)
     return prisma.user.update({
       where: { id },
       data

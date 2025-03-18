@@ -1,6 +1,6 @@
-const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const AuthRepository = require('../repositories/auth.repository')
+const { hashPassword, comparePassword } = require('../libs/bycript')
 
 class AuthService {
   static async register (name, email, password) {
@@ -9,7 +9,7 @@ class AuthService {
       throw new Error('Email already registered')
     }
 
-    const hashedPassword = await bcrypt.hash(password, 10)
+    const hashedPassword = await hashPassword(password, 10)
 
     const user = await AuthRepository.create({
       name,
@@ -26,7 +26,7 @@ class AuthService {
       throw new Error('User not found')
     }
 
-    const isPasswordValid = await bcrypt.compare(password, user.password)
+    const isPasswordValid = await comparePassword(password, user.password)
     if (!isPasswordValid) {
       throw new Error('Invalid password')
     }
@@ -48,8 +48,9 @@ class AuthService {
   }
 
   static async updateProfile (id, data) {
+    console.log(`data service : ${data}`)
     if (data.password) {
-      data.password = await bcrypt.hash(data.password, 10)
+      data.password = await hashPassword(data.password, 10)
     }
 
     return AuthRepository.update(id, data)
