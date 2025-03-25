@@ -7,7 +7,7 @@ const { PrismaClient } = require('@prisma/client')
 const prisma = new PrismaClient()
 
 class BookmarkRepository {
-  static async createBookmark (user_id, article_id) {
+  static async createBookmark(user_id, article_id) {
     return await prisma.bookmark.create({
       data: {
         user_id,
@@ -17,7 +17,7 @@ class BookmarkRepository {
     })
   }
 
-  static async checkBookmark (user_id, article_id) {
+  static async checkBookmark(user_id, article_id) {
     return await prisma.bookmark.findUnique({
       where: {
         article_id_user_id: {
@@ -28,7 +28,7 @@ class BookmarkRepository {
     })
   }
 
-  static async getUserBookmarks (user_id) {
+  static async getUserBookmarks(user_id) {
     return await prisma.bookmark.findMany({
       where: { user_id },
       include: {
@@ -37,12 +37,12 @@ class BookmarkRepository {
     })
   }
 
-  static async deleteBookmark (user_id, article_id) {
+  static async deleteBookmark(user_id, article_id) {
     return await prisma.bookmark.delete({
       where: {
         article_id_user_id: { user_id, article_id }
       }
-    });
+    })
   }
 }
 
