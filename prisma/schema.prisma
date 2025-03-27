@@ -69,6 +69,7 @@ model Like {
   @@unique([article_id, user_id])
 }
 
+
 model Bookmark {
   id         Int     @id @default(autoincrement())
   article_id Int
