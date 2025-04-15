@@ -97,13 +97,13 @@ class ArticleService {
       console.log(totalArticle)
       const totalPage = Math.ceil(totalArticle / limit)
 
-      const categoryResp = {
+      const articleResp = {
         data: dataArticle,
         currentPage: page,
         totalPage,
         totalData: article.length
       }
-      return categoryResp
+      return articleResp
     } catch (error) {
       const err = new Error('Internal Server Error')
       err.statusCode = 500
