@@ -18,12 +18,12 @@ model User {
   name      String
   email     String   @unique
   password  String
-  photo_url String
+  photo_url String?
   createdAt DateTime @default(now())
 
   like     Like[]
-  bookmark bookmark[]
-  article Article[]
+  bookmark Bookmark[]
+  article  Article[]
 }
 
 model Category {
@@ -36,17 +36,17 @@ model Category {
 model Article {
   id          Int    @id @default(autoincrement())
   title       String
-  total_like  Int
   category_id Int
+  total_like  Int    @default(0)
   photo_url   String
   description String
-  user_id Int
+  user_id     Int
 
-  user User @relation(fields: [user_id], references: [id])
+  user     User       @relation(fields: [user_id], references: [id])
   category Category   @relation(fields: [category_id], references: [id])
   recipe   Recipe[]
   like     Like[]
-  bookmark bookmark[]
+  bookmark Bookmark[]
 }
 
 model Recipe {
@@ -69,7 +69,7 @@ model Like {
   @@unique([article_id, user_id])
 }
 
-model bookmark {
+model Bookmark {
   id         Int     @id @default(autoincrement())
   article_id Int
   user_id    Int
@@ -79,4 +79,5 @@ model bookmark {
   user    User    @relation(fields: [user_id], references: [id])
 
   @@unique([article_id, user_id])
+  @@map("bookmark")
 }
