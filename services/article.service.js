@@ -19,15 +19,18 @@ class ArticleService {
     }
   }
 
-  static async getAll (params) {
+  static async getAll (query) {
     try {
-      let { page, limit, search } = params
+      let { page, limit, search, articleType } = query
 
       page = parseInt(page) || 1
       limit = parseInt(limit) || 10
 
+      const type = articleType || 'all'
+
       const filterOptions = {}
       let searchFilter = {}
+      let typeFilter = {}
 
       if (search) {
         searchFilter = {
@@ -38,8 +41,17 @@ class ArticleService {
         }
       }
 
+      if (type !== 'all') {
+        typeFilter = {
+          type: {
+            equals: type
+          }
+        }
+      }
+
       filterOptions.where = {
-        ...searchFilter
+        ...searchFilter,
+        ...typeFilter
       }
 
       const startIndex = (page - 1) * limit
@@ -72,6 +84,7 @@ class ArticleService {
           category_id: item.category_id,
           user_id: item.user_id,
           photo_url: item.photo_url,
+          type: item.type,
           description: item.description,
           category: item.category,
           user: item.user,

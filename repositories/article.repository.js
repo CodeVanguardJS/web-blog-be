@@ -52,7 +52,7 @@ class ArticleRepository {
   static async getTotalArticle (filter) {
     try {
       const article = await prisma.article.count({
-        ...filter
+        where: { ...filter }
       })
       return article
     } catch (error) {
