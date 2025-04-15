@@ -18,7 +18,7 @@ class AuthService {
     })
 
     return { id: user.id, name: user.name, email: user.email }
-  }
+  } 
 
   static async login (email, password) {
     const user = await AuthRepository.findByEmail(email)
