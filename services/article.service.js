@@ -179,18 +179,17 @@ class ArticleService {
   //     }
   //   }
 
-  static async create (body, photo) {
+  static async create (body, photo, userAuthId) {
     try {
-      const userAuthId = 104
       const { title, categoryId, description, recipes } = body
       console.log(categoryId)
       const photoUpload = await cloudinaryUpload(photo)
 
       const recipeData = []
 
-      for (let i = 0; i < recipes.length; i++) {
+      for (const element of recipes) {
         recipeData.push({
-          content: recipes[i]
+          content: element
         })
       }
 
@@ -229,13 +228,19 @@ class ArticleService {
     }
   }
 
-  static async update (id, data, photo) {
+  static async update (id, data, photo, userAuthId) {
     try {
       const isArticleExist = await ArticleRepository.getById(+id)
       if (!isArticleExist) {
         const error = new Error('Article not found')
         error.name = 'NotFound'
         error.statusCode = 404
+        throw error
+      }
+      if (isArticleExist.user_id !== userAuthId) {
+        const error = new Error('Unauthorized')
+        error.name = 'Unauthorized'
+        error.statusCode = 401
         throw error
       }
       const photoUpload = await cloudinaryUpload(photo)
@@ -248,13 +253,19 @@ class ArticleService {
     }
   }
 
-  static async delete (id) {
+  static async delete (id, userAuthId) {
     try {
       const isArticleExist = await ArticleRepository.getById(+id)
       if (!isArticleExist) {
         const error = new Error('Article not found')
         error.name = 'NotFound'
         error.statusCode = 404
+        throw error
+      }
+      if (isArticleExist.user_id !== userAuthId) {
+        const error = new Error('Unauthorized')
+        error.name = 'Unauthorized'
+        error.statusCode = 401
         throw error
       }
       const article = await ArticleRepository.delete(+id)
