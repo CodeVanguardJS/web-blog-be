@@ -19,15 +19,18 @@ class ArticleService {
     }
   }
 
-  static async getAll (params) {
+  static async getAll (query) {
     try {
-      let { page, limit, search } = params
+      let { page, limit, search, articleType } = query
 
       page = parseInt(page) || 1
       limit = parseInt(limit) || 10
 
+      const type = articleType || 'all'
+
       const filterOptions = {}
       let searchFilter = {}
+      let typeFilter = {}
 
       if (search) {
         searchFilter = {
@@ -38,8 +41,17 @@ class ArticleService {
         }
       }
 
+      if (type !== 'all') {
+        typeFilter = {
+          type: {
+            equals: type
+          }
+        }
+      }
+
       filterOptions.where = {
-        ...searchFilter
+        ...searchFilter,
+        ...typeFilter
       }
 
       const startIndex = (page - 1) * limit
@@ -72,6 +84,7 @@ class ArticleService {
           category_id: item.category_id,
           user_id: item.user_id,
           photo_url: item.photo_url,
+          type: item.type,
           description: item.description,
           category: item.category,
           user: item.user,
@@ -84,13 +97,13 @@ class ArticleService {
       console.log(totalArticle)
       const totalPage = Math.ceil(totalArticle / limit)
 
-      const categoryResp = {
+      const articleResp = {
         data: dataArticle,
         currentPage: page,
         totalPage,
         totalData: article.length
       }
-      return categoryResp
+      return articleResp
     } catch (error) {
       const err = new Error('Internal Server Error')
       err.statusCode = 500
@@ -166,18 +179,17 @@ class ArticleService {
   //     }
   //   }
 
-  static async create (body, photo) {
+  static async create (body, photo, userAuthId) {
     try {
-      const userAuthId = 104
       const { title, categoryId, description, recipes } = body
       console.log(categoryId)
       const photoUpload = await cloudinaryUpload(photo)
 
       const recipeData = []
 
-      for (let i = 0; i < recipes.length; i++) {
+      for (const element of recipes) {
         recipeData.push({
-          content: recipes[i]
+          content: element
         })
       }
 
@@ -216,13 +228,19 @@ class ArticleService {
     }
   }
 
-  static async update (id, data, photo) {
+  static async update (id, data, photo, userAuthId) {
     try {
       const isArticleExist = await ArticleRepository.getById(+id)
       if (!isArticleExist) {
         const error = new Error('Article not found')
         error.name = 'NotFound'
         error.statusCode = 404
+        throw error
+      }
+      if (isArticleExist.user_id !== userAuthId) {
+        const error = new Error('Unauthorized')
+        error.name = 'Unauthorized'
+        error.statusCode = 401
         throw error
       }
       const photoUpload = await cloudinaryUpload(photo)
@@ -235,13 +253,19 @@ class ArticleService {
     }
   }
 
-  static async delete (id) {
+  static async delete (id, userAuthId) {
     try {
       const isArticleExist = await ArticleRepository.getById(+id)
       if (!isArticleExist) {
         const error = new Error('Article not found')
         error.name = 'NotFound'
         error.statusCode = 404
+        throw error
+      }
+      if (isArticleExist.user_id !== userAuthId) {
+        const error = new Error('Unauthorized')
+        error.name = 'Unauthorized'
+        error.statusCode = 401
         throw error
       }
       const article = await ArticleRepository.delete(+id)

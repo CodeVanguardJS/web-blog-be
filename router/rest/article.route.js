@@ -1,14 +1,15 @@
 const express = require('express')
 const ArticleController = require('../../controllers/article.controller')
 const upload = require('../../middlewares/multer')
+const authMiddleware = require('../../middlewares/authMiddleware')
 const router = express.Router()
 
 router.get('/', ArticleController.getAll)
 router.get('/category/:id', ArticleController.getByCategory)
-router.post('/', upload.single('photo'), ArticleController.create)
+router.post('/', authMiddleware, upload.single('photo'), ArticleController.create)
 router.get('/:id', ArticleController.getById)
-router.put('/:id', upload.single('photo'), ArticleController.update)
-router.delete('/:id', ArticleController.delete)
+router.put('/:id', authMiddleware, upload.single('photo'), ArticleController.update)
+router.delete('/:id', authMiddleware, ArticleController.delete)
 router.post('/upload', upload.single('image'), ArticleController.upload)
 
 module.exports = router
