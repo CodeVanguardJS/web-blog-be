@@ -13,6 +13,10 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum TypeArticle {
+  PUBLISHED
+  DRAFT
+}
 model User {
   id        Int      @id @default(autoincrement())
   name      String
@@ -41,9 +45,10 @@ model Article {
   photo_url   String
   description String
   user_id     Int
+  type TypeArticle @default(DRAFT)
 
   user     User       @relation(fields: [user_id], references: [id])
-  category Category   @relation(fields: [category_id], references: [id])
+  category Category   @relation(fields: [category_id], references: [id], onDelete: Cascade)
   recipe   Recipe[]
   like     Like[]
   bookmark Bookmark[]

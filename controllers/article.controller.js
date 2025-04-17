@@ -42,7 +42,7 @@ class ArticleController {
         throw error
       }
       const body = { title, categoryId, description, recipes }
-      const article = await ArticleService.create(body, photo)
+      const article = await ArticleService.create(body, photo, req.user.id)
 
       return successResponse(res, article, 'Success Post Article', 201)
     } catch (error) {
@@ -63,7 +63,7 @@ class ArticleController {
       }
 
       const body = { title, category_id: +categoryId, description }
-      const article = await ArticleService.update(id, body, photo)
+      const article = await ArticleService.update(id, body, photo, req.user.id)
       return successResponse(res, article, 'Success Put Article')
     } catch (error) {
       next(error)
@@ -73,7 +73,7 @@ class ArticleController {
   static async delete (req, res, next) {
     try {
       const { id } = req.params
-      const article = await ArticleService.delete(id)
+      const article = await ArticleService.delete(id, req.user.id)
       return successResponse(res, article, 'Success Delete Article')
     } catch (error) {
       next(error)
