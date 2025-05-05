@@ -243,8 +243,12 @@ class ArticleService {
         error.statusCode = 401
         throw error
       }
-      const photoUpload = await cloudinaryUpload(photo)
-      data.photo_url = photoUpload.secure_url
+      if (photo) {
+        const photoUpload = await cloudinaryUpload(photo)
+        data.photo_url = photoUpload.secure_url
+      }
+      // const photoUpload = await cloudinaryUpload(photo)
+      // data.photo_url = photoUpload.secure_url
       const recipe = await ArticleRepository.update(+id, data)
       return recipe
     } catch (error) {
