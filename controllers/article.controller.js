@@ -52,11 +52,15 @@ class ArticleController {
 
   static async update (req, res, next) {
     try {
+      let photo = null
       const { title, categoryId, description } = req.body
       const { id } = req.params
-      const photo = req.file.path
 
-      if (!title || !categoryId || !description || !photo) {
+      if (req.file) {
+        photo = req.file.path
+      }
+
+      if (!title || !categoryId || !description) {
         const error = new Error('field  is required')
         error.name = 'BadRequest'
         throw error

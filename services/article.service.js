@@ -187,10 +187,16 @@ class ArticleService {
 
       const recipeData = []
 
-      for (const element of recipes) {
+      if (typeof recipes === 'string') {
         recipeData.push({
-          content: element
+          content: recipes
         })
+      } else {
+        for (const element of recipes) {
+          recipeData.push({
+            content: element
+          })
+        }
       }
 
       const data = {
@@ -243,8 +249,10 @@ class ArticleService {
         error.statusCode = 401
         throw error
       }
-      const photoUpload = await cloudinaryUpload(photo)
-      data.photo_url = photoUpload.secure_url
+      if (photo) {
+        const photoUpload = await cloudinaryUpload(photo)
+        data.photo_url = photoUpload.secure_url
+      }
       const recipe = await ArticleRepository.update(+id, data)
       return recipe
     } catch (error) {
