@@ -38,9 +38,7 @@ describe('Auth Routes', () => {
   })
 
   test('Get profile (auth/me)', async () => {
-    const res = await request(app)
-      .get(`${BASE_URL}/me`)
-      .set('Authorization', `Bearer ${token}`)
+    const res = await request(app).get(`${BASE_URL}/me`).set('Authorization', `Bearer ${token}`)
 
     expect(res.statusCode).toBe(200)
     expect(res.body.status).toBe(true)
