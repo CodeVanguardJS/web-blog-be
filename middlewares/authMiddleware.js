@@ -1,18 +1,19 @@
 const jwt = require('jsonwebtoken')
+const { errorResponse } = require('../helpers/response')
 
 const authMiddleware = (req, res, next) => {
   console.log('middleware auth')
   try {
     const token = req.headers.authorization?.split(' ')[1]
     if (!token) {
-      return res.status(401).json({ status: false, message: 'Unauthorized' })
+      return errorResponse(res, 401, 'Unauthorized')
     }
 
     const decoded = jwt.verify(token, process.env.JWT_SECRET)
     req.user = decoded
     next()
   } catch (error) {
-    return res.status(401).json({ status: false, message: 'Invalid or expired token' })
+    return errorResponse(res, 401, 'Invalid or expired token')
   }
 }
 
