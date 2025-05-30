@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken')
 const AuthRepository = require('../repositories/auth.repository')
-const { hashPassword, comparePassword } = require('../libs/bycript')
+const { hashPassword, comparePassword } = require('../libs/bcrypt')
 
 class AuthService {
   static async register (name, email, password) {
