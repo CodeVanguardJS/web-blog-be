@@ -15,7 +15,7 @@ class RecipeController {
     try {
       const { id } = req.params
       const recipe = await RecipeService.createByArticle(id, req.body)
-      return successResponse(res, recipe, 'Success Post Category', 201)
+      return successResponse(res, recipe, 'Success Post Recipes', 201)
     } catch (error) {
       next(error)
     }
