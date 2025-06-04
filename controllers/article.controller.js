@@ -12,6 +12,17 @@ class ArticleController {
     }
   }
 
+  static async getByUser (req, res, next) {
+    try {
+      const { id } = req.user
+      console.log(`id: ${id}`)
+      const category = await ArticleService.getAll(req.query, id)
+      return successResponse(res, category, 'Success Get Category By Id')
+    } catch (error) {
+      next(error)
+    }
+  }
+
   static async getByCategory (req, res, next) {
     try {
       const { id } = req.params
