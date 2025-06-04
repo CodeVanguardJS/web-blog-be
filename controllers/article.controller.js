@@ -34,14 +34,14 @@ class ArticleController {
 
   static create = async (req, res, next) => {
     try {
-      const { title, categoryId, description, recipes } = req.body
+      const { title, categoryId, description, recipes, articleType } = req.body
       const photo = req.file.path
       if (!title || !categoryId || !description || !recipes || !photo) {
         const error = new Error('field  is required')
         error.name = 'BadRequest'
         throw error
       }
-      const body = { title, categoryId, description, recipes }
+      const body = { title, categoryId, description, recipes, articleType }
       const article = await ArticleService.create(body, photo, req.user.id)
 
       return successResponse(res, article, 'Success Post Article', 201)
