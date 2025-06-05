@@ -181,11 +181,16 @@ class ArticleService {
 
   static async create (body, photo, userAuthId) {
     try {
-      const { title, categoryId, description, recipes } = body
+      let type = 'DRAFT'
+      const { title, categoryId, description, recipes, articleType } = body
       console.log(categoryId)
       const photoUpload = await cloudinaryUpload(photo)
 
       const recipeData = []
+
+      if (articleType) {
+        type = articleType
+      }
 
       if (typeof recipes === 'string') {
         recipeData.push({
@@ -204,6 +209,7 @@ class ArticleService {
         description,
         photo_url: photoUpload.secure_url,
         total_like: 0,
+        type,
         user: {
           connect: {
             id: userAuthId
@@ -224,6 +230,7 @@ class ArticleService {
       console.log(`recipes: ${recipes}`)
 
       return article
+      // return data
     } catch (error) {
       if (error.code === 'P2002') {
         const err = new Error('Category already exist')
