@@ -2,6 +2,7 @@
 const { successResponse } = require('../helpers/response')
 const cloudinaryUpload = require('../libs/cloudinary')
 const AuthService = require('../services/auth.service')
+const fs = require('fs') // Tambahkan untuk hapus file lokal
 
 class AuthController {
   static async register (req, res, next) {
@@ -36,13 +37,21 @@ class AuthController {
   static async updateProfile (req, res, next) {
     try {
       const { name, email, password } = req.body
-      const photo_url = req.file.path
-      const result = await cloudinaryUpload(photo_url)
-      console.log(photo_url)
+      const updateData = { name, email }
 
-      const updateData = { name, email, photo_url: result.secure_url }
-      if (password) updateData.password = password
-      // if (photo_url) updateData.photo_url = photo_url
+      // Jika user upload file, proses upload ke Cloudinary
+      if (req.file) {
+        const result = await cloudinaryUpload(req.file.path)
+        updateData.photo_url = result.secure_url
+
+        // Hapus file dari penyimpanan lokal setelah upload ke Cloudinary
+        fs.unlinkSync(req.file.path)
+      }
+
+      // Jika user mengganti password, sertakan
+      if (password) {
+        updateData.password = password
+      }
 
       console.log(`data controller: ${JSON.stringify(updateData)}`)
 
