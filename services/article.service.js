@@ -269,6 +269,9 @@ class ArticleService {
         const photoUpload = await cloudinaryUpload(photo)
         data.photo_url = photoUpload.secure_url
       }
+      if (!data.type) {
+        data.type = 'DRAFT'
+      }
       const recipe = await ArticleRepository.update(+id, data)
       return recipe
     } catch (error) {
