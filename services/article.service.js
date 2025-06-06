@@ -272,6 +272,7 @@ class ArticleService {
       if (!data.type) {
         data.type = 'DRAFT'
       }
+      console.log(`data: ${data.type}`)
       const recipe = await ArticleRepository.update(+id, data)
       return recipe
     } catch (error) {
