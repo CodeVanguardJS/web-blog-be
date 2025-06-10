@@ -103,6 +103,7 @@ class ArticleRepository {
         title: params.title,
         description: params.description,
         photo_url: params.photo_url,
+        type: params.type,
         category: {
           connect: {
             id: params.category_id
