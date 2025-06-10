@@ -12,6 +12,17 @@ class ArticleController {
     }
   }
 
+  static async getByUser (req, res, next) {
+    try {
+      const { id } = req.user
+      console.log(`id: ${id}`)
+      const category = await ArticleService.getAll(req.query, id)
+      return successResponse(res, category, 'Success Get Category By Id')
+    } catch (error) {
+      next(error)
+    }
+  }
+
   static async getByCategory (req, res, next) {
     try {
       const { id } = req.params
@@ -53,7 +64,7 @@ class ArticleController {
   static async update (req, res, next) {
     try {
       let photo = null
-      const { title, categoryId, description } = req.body
+      const { title, categoryId, description, articleType } = req.body
       const { id } = req.params
 
       if (req.file) {
@@ -66,7 +77,7 @@ class ArticleController {
         throw error
       }
 
-      const body = { title, category_id: +categoryId, description }
+      const body = { title, category_id: +categoryId, description, type: articleType }
       const article = await ArticleService.update(id, body, photo, req.user.id)
       return successResponse(res, article, 'Success Put Article')
     } catch (error) {
