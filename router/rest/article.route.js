@@ -5,6 +5,7 @@ const authMiddleware = require('../../middlewares/authMiddleware')
 const router = express.Router()
 
 router.get('/', ArticleController.getAll)
+router.get('/me', authMiddleware, ArticleController.getByUser)
 router.get('/category/:id', ArticleController.getByCategory)
 router.post('/', authMiddleware, upload.single('photo'), ArticleController.create)
 router.get('/:id', ArticleController.getById)
