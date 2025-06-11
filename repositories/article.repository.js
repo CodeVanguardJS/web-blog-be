@@ -52,7 +52,7 @@ class ArticleRepository {
   static async getTotalArticle (filter) {
     try {
       const article = await prisma.article.count({
-        ...filter
+        where: { ...filter }
       })
       return article
     } catch (error) {
@@ -119,8 +119,12 @@ class ArticleRepository {
 
   static delete = async (id) => {
     try {
-      const category = await prisma.article.delete({ where: { id } })
-      return category
+      const aritcle = await prisma.$transaction([
+        prisma.recipe.deleteMany({ where: { article_id: id } }),
+        prisma.article.delete({ where: { id } })
+      ])
+      // const aritcle = await prisma.article.delete({ where: { id } })
+      return aritcle
     } catch (error) {
       console.log(error)
       throw error

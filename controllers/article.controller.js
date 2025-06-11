@@ -34,15 +34,15 @@ class ArticleController {
 
   static create = async (req, res, next) => {
     try {
-      const { title, categoryId, description, recipes } = req.body
+      const { title, categoryId, description, recipes, articleType } = req.body
       const photo = req.file.path
       if (!title || !categoryId || !description || !recipes || !photo) {
         const error = new Error('field  is required')
         error.name = 'BadRequest'
         throw error
       }
-      const body = { title, categoryId, description, recipes }
-      const article = await ArticleService.create(body, photo)
+      const body = { title, categoryId, description, recipes, articleType }
+      const article = await ArticleService.create(body, photo, req.user.id)
 
       return successResponse(res, article, 'Success Post Article', 201)
     } catch (error) {
@@ -52,18 +52,22 @@ class ArticleController {
 
   static async update (req, res, next) {
     try {
+      let photo = null
       const { title, categoryId, description } = req.body
       const { id } = req.params
-      const photo = req.file.path
 
-      if (!title || !categoryId || !description || !photo) {
+      if (req.file) {
+        photo = req.file.path
+      }
+
+      if (!title || !categoryId || !description) {
         const error = new Error('field  is required')
         error.name = 'BadRequest'
         throw error
       }
 
       const body = { title, category_id: +categoryId, description }
-      const article = await ArticleService.update(id, body, photo)
+      const article = await ArticleService.update(id, body, photo, req.user.id)
       return successResponse(res, article, 'Success Put Article')
     } catch (error) {
       next(error)
@@ -73,7 +77,7 @@ class ArticleController {
   static async delete (req, res, next) {
     try {
       const { id } = req.params
-      const article = await ArticleService.delete(id)
+      const article = await ArticleService.delete(id, req.user.id)
       return successResponse(res, article, 'Success Delete Article')
     } catch (error) {
       next(error)
