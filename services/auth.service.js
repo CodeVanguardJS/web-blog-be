@@ -17,7 +17,11 @@ class AuthService {
       password: hashedPassword
     })
 
-    return { id: user.id, name: user.name, email: user.email }
+    return {
+      id: user.id,
+      name: user.name,
+      email: user.email
+    }
   }
 
   static async login (email, password) {
@@ -43,17 +47,16 @@ class AuthService {
     if (!user) {
       throw new Error('User not found')
     }
-
     return user
   }
 
   static async updateProfile (id, data) {
-    console.log(`data service : ${data}`)
     if (data.password) {
       data.password = await hashPassword(data.password, 10)
     }
 
-    return AuthRepository.update(id, data)
+    const updatedUser = await AuthRepository.update(id, data)
+    return updatedUser
   }
 }
 

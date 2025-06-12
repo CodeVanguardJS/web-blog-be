@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 const { successResponse } = require('../helpers/response')
 const cloudinaryUpload = require('../libs/cloudinary')
 const AuthService = require('../services/auth.service')
@@ -42,15 +41,12 @@ class AuthController {
       if (req.file) {
         const result = await cloudinaryUpload(req.file.path)
         updateData.photo_url = result.secure_url
-
         fs.unlinkSync(req.file.path)
       }
 
       if (password) {
         updateData.password = password
       }
-
-      console.log(`data controller: ${JSON.stringify(updateData)}`)
 
       const updatedUser = await AuthService.updateProfile(req.user.id, updateData)
       return successResponse(res, updatedUser, 'Profile updated successfully')
