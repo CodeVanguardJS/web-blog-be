@@ -19,7 +19,7 @@ class ArticleService {
     }
   }
 
-  static async getAll (query) {
+  static async getAll (query, authId = undefined) {
     try {
       let { page, limit, search, articleType } = query
 
@@ -37,6 +37,14 @@ class ArticleService {
           title: {
             contains: search,
             mode: 'insensitive'
+          }
+        }
+      }
+
+      if (authId) {
+        typeFilter = {
+          user_id: {
+            equals: authId
           }
         }
       }
@@ -105,6 +113,7 @@ class ArticleService {
       }
       return articleResp
     } catch (error) {
+      console.log(`the error: ${error}`)
       const err = new Error('Internal Server Error')
       err.statusCode = 500
       throw err
@@ -260,6 +269,10 @@ class ArticleService {
         const photoUpload = await cloudinaryUpload(photo)
         data.photo_url = photoUpload.secure_url
       }
+      if (!data.type) {
+        data.type = 'DRAFT'
+      }
+      console.log(`data: ${data.type}`)
       const recipe = await ArticleRepository.update(+id, data)
       return recipe
     } catch (error) {
