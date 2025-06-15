@@ -8,7 +8,13 @@ class AuthRepository {
   static async findById (id) {
     return prisma.user.findUnique({
       where: { id },
-      select: { id: true, name: true, email: true, photo_url: true }
+      select: {
+        id: true,
+        name: true,
+        email: true,
+        photo_url: true,
+        createdAt: true
+      }
     })
   }
 
@@ -17,15 +23,26 @@ class AuthRepository {
       data: {
         ...data,
         photo_url: data.photo_url || null
+      },
+      select: {
+        id: true,
+        name: true,
+        email: true
       }
     })
   }
 
   static async update (id, data) {
-    console.log(`id: ${id}, data: ${data}`)
     return prisma.user.update({
       where: { id },
-      data
+      data,
+      select: {
+        id: true,
+        name: true,
+        email: true,
+        photo_url: true,
+        createdAt: true
+      }
     })
   }
 }
