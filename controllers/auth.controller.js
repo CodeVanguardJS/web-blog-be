@@ -1,6 +1,8 @@
 const { successResponse } = require('../helpers/response')
 const cloudinaryUpload = require('../libs/cloudinary')
 const AuthService = require('../services/auth.service')
+const errorResponse = require('../middlewares/errorHandler')
+const DashboardRepository = require('../repositories/dashboard.repository')
 const fs = require('fs')
 
 class AuthController {
@@ -52,6 +54,21 @@ class AuthController {
       return successResponse(res, updatedUser, 'Profile updated successfully')
     } catch (error) {
       next(error)
+    }
+  }
+
+  static async getDashboardSummary (req, res) {
+    try {
+      const userId = req.user.id
+      console.log('USER ID:', userId)
+
+      const summary = await DashboardRepository.getDashboardSummary(userId)
+      console.log('SUMMARY:', summary)
+
+      return successResponse(res, summary)
+    } catch (error) {
+      console.error('DASHBOARD ERROR:', error)
+      return errorResponse(res, 'Internal server error', [error.message], 500)
     }
   }
 }

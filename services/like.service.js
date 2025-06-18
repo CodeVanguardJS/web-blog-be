@@ -73,7 +73,17 @@ class LikeService {
   static async getLikesByArticleId (articleId) {
     return await prisma.like.findMany({
       where: { article_id: Number(articleId) },
-      include: { user: true }
+      include: {
+        user: {
+          select: {
+            id: true,
+            name: true,
+            email: true,
+            photo_url: true,
+            createdAt: true
+          }
+        }
+      }
     })
   }
 
@@ -111,26 +121,6 @@ class LikeService {
     return {
       message: 'Like deleted successfully',
       data: { deleted: true }
-    }
-  }
-
-  static async getDashboardSummary (userId) {
-    const [totalLikes, totalBookmarks, totalArticles] = await Promise.all([
-      prisma.like.count({
-        where: { user_id: Number(userId), status: true }
-      }),
-      prisma.bookmark.count({
-        where: { user_id: Number(userId), status: true }
-      }),
-      prisma.article.count({
-        where: { user_id: Number(userId) }
-      })
-    ])
-
-    return {
-      totalLikes,
-      totalBookmarks,
-      totalArticles
     }
   }
 }
