@@ -4,22 +4,55 @@ const prisma = require('../libs/prisma')
 
 class LikeRepository {
   static async toggleLike (user_id, article_id) {
-    const existingLike = await prisma.like.findFirst({
-      where: { user_id, article_id }
+    const existingLike = await prisma.like.findUnique({
+      where: {
+        article_id_user_id: {
+          article_id,
+          user_id
+        }
+      }
     })
 
     if (existingLike) {
+      // UNLIKE
       await prisma.like.delete({
-        where: { id: existingLike.id }
+        where: {
+          article_id_user_id: {
+            article_id,
+            user_id
+          }
+        }
       })
-      return { message: 'Like removed', data: null }
+
+      await prisma.article.update({
+        where: { id: article_id },
+        data: { total_like: { decrement: 1 } }
+      })
+
+      return {
+        message: 'Like removed',
+        data: { liked: false }
+      }
     }
 
+    // LIKE
     const newLike = await prisma.like.create({
-      data: { user_id, article_id, status: true }
+      data: {
+        article_id,
+        user_id,
+        status: true
+      }
     })
 
-    return { message: 'Like added', data: newLike }
+    await prisma.article.update({
+      where: { id: article_id },
+      data: { total_like: { increment: 1 } }
+    })
+
+    return {
+      message: 'Like added',
+      data: { liked: true, like: newLike }
+    }
   }
 
   static async getUserLikes (user_id) {
@@ -30,11 +63,67 @@ class LikeRepository {
   }
 
   static async getLikeCount (articleId) {
-    const count = await prisma.like.count({
+    return await prisma.like.count({
       where: { article_id: parseInt(articleId) }
     })
+  }
 
-    return count
+  static async getLikesByArticleId (articleId) {
+    return await prisma.like.findMany({
+      where: { article_id: parseInt(articleId) },
+      include: { user: true }
+    })
+  }
+
+  static async deleteLikeByArticleId (user_id, article_id) {
+    const like = await prisma.like.findUnique({
+      where: {
+        article_id_user_id: {
+          article_id: parseInt(article_id),
+          user_id: parseInt(user_id)
+        }
+      }
+    })
+
+    if (!like) {
+      return { message: 'Like not found', data: null }
+    }
+
+    await prisma.like.delete({
+      where: {
+        article_id_user_id: {
+          article_id: parseInt(article_id),
+          user_id: parseInt(user_id)
+        }
+      }
+    })
+
+    await prisma.article.update({
+      where: { id: parseInt(article_id) },
+      data: { total_like: { decrement: 1 } }
+    })
+
+    return { message: 'Like deleted', data: { deleted: true } }
+  }
+
+  static async getDashboardSummary (userId) {
+    const [totalLikes, totalBookmarks, totalArticles] = await Promise.all([
+      prisma.like.count({
+        where: { user_id: parseInt(userId), status: true }
+      }),
+      prisma.bookmark.count({
+        where: { user_id: parseInt(userId), status: true }
+      }),
+      prisma.article.count({
+        where: { user_id: parseInt(userId) }
+      })
+    ])
+
+    return {
+      totalLikes,
+      totalBookmarks,
+      totalArticles
+    }
   }
 }
 
