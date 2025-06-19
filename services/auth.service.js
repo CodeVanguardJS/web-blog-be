@@ -26,7 +26,7 @@ class AuthService {
       throw new Error('User not found')
     }
 
-    console.log(`user: ${user.password}`)
+    // console.log(`user: ${user.password}`)
 
     const isPasswordValid = await comparePassword(password, user.password)
     if (!isPasswordValid) {

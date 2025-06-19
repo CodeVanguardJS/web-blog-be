@@ -128,6 +128,59 @@ describe('Article Routes with login', () => {
     expect(res.body.status).toBe(true)
     expect(res.body.message).toBe('Success Get Article By User')
     expect(res.body.data.data.length).toBe(2)
-    console.log('File exists:', fs.existsSync(path.resolve(__dirname, './assets/sample.png')))
+    // console.log('File exists:', fs.existsSync(path.resolve(__dirname, './assets/sample.png')))
+  })
+
+  test('Create article', (done) => {
+    const photoPath = path.resolve(__dirname, './assets/sample.png')
+    expect(fs.existsSync(photoPath)).toBe(true) // tambah ini biar otomatis fail kalau false
+
+    request(app)
+      .post(`${BASE_URL}`)
+      .field('title', 'Article 4')
+      .field('categoryId', '1001')
+      .field('description', 'Description 4')
+      .field('type', 'PUBLISHED')
+      .field('recipes', 'Recipe 1')
+      .field('recipes', 'Recipe 2')
+      .attach('photo', photoPath)
+      .set('Authorization', `Bearer ${TOKEN}`)
+      .expect(201)
+      .then(async (res) => {
+        expect(res.body.status).toBe(true)
+        expect(res.body.message).toBe('Success Post Article')
+
+        // const deleteArticle = await prisma.$transaction([
+        await prisma.$transaction([
+          prisma.recipe.deleteMany({ where: { article_id: res.body.data.id } }),
+          prisma.article.delete({ where: { id: res.body.data.id } })
+        ])
+
+        // console.log(`Delete article: ${JSON.stringify(deleteArticle, null, 2)}`)
+        done()
+      })
+      .catch((err) => done(err))
+  })
+
+  test('Update article', async () => {
+    const res = await request(app)
+      .put(`${BASE_URL}/1001`)
+      .send({
+        title: 'Article 1 Updated',
+        description: 'Description 4 Updated',
+        articleType: 'PUBLISHED',
+        categoryId: '1001'
+      })
+      .set('Authorization', `Bearer ${TOKEN}`)
+    expect(res.statusCode).toBe(200)
+    expect(res.body.status).toBe(true)
+    expect(res.body.message).toBe('Success Put Article')
+  })
+
+  test('Delete article', async () => {
+    const res = await request(app).delete(`${BASE_URL}/1001`).set('Authorization', `Bearer ${TOKEN}`)
+    expect(res.statusCode).toBe(200)
+    expect(res.body.status).toBe(true)
+    expect(res.body.message).toBe('Success Delete Article')
   })
 })

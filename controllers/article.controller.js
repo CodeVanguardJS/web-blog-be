@@ -15,7 +15,7 @@ class ArticleController {
   static async getByUser (req, res, next) {
     try {
       const { id } = req.user
-      console.log(`id: ${id}`)
+      // console.log(`id: ${id}`)
       const article = await ArticleService.getAll(req.query, id)
       return successResponse(res, article, 'Success Get Article By User')
     } catch (error) {
