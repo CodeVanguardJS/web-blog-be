@@ -178,7 +178,9 @@ describe('Article Routes with login', () => {
   })
 
   test('Delete article', async () => {
-    const res = await request(app).delete(`${BASE_URL}/1001`).set('Authorization', `Bearer ${TOKEN}`)
+    const res = await request(app)
+      .delete(`${BASE_URL}/1001`)
+      .set('Authorization', `Bearer ${TOKEN}`)
     expect(res.statusCode).toBe(200)
     expect(res.body.status).toBe(true)
     expect(res.body.message).toBe('Success Delete Article')
