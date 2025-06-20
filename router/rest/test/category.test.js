@@ -7,7 +7,8 @@ const BASE_URL = '/api/v1/categories'
 beforeAll(async () => {
   try {
     // Insert data ke tabel Todos
-    const category = await prisma.category.createMany({
+    // const category = await prisma.category.createMany({
+    await prisma.category.createMany({
       data: [
         { id: 1001, name: 'AAA' },
         { id: 1002, name: 'BBB' },
@@ -16,7 +17,7 @@ beforeAll(async () => {
       ]
     })
 
-    console.log(category)
+    // console.log(category)
   } catch (error) {
     console.error(error)
   }
@@ -37,7 +38,7 @@ describe('GET List todo /api/v1/categories', () => {
     const response = await request(app).get(BASE_URL).expect(200)
 
     expect(response.body.message).toBe('Success Get All Categories')
-    console.log(response.body)
+    // console.log(response.body)
   })
 })
 
