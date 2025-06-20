@@ -54,6 +54,16 @@ class AuthController {
       next(error)
     }
   }
+
+  static async getUserById (req, res, next) {
+    try {
+      const { id } = req.params
+      const user = await AuthService.getProfile(Number(id))
+      return successResponse(res, user, 'User profile retrieved successfully')
+    } catch (error) {
+      next(error)
+    }
+  }
 }
 
 module.exports = AuthController
