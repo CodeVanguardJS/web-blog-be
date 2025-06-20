@@ -1,6 +1,8 @@
 const { successResponse } = require('../helpers/response')
 const cloudinaryUpload = require('../libs/cloudinary')
 const AuthService = require('../services/auth.service')
+const errorResponse = require('../middlewares/errorHandler')
+const DashboardRepository = require('../repositories/dashboard.repository')
 const fs = require('fs')
 
 class AuthController {
