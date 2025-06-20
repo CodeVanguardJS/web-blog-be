@@ -19,7 +19,7 @@ class LikeController {
     }
   }
 
-  static async getUserLikes (req, res) {
+  static async getMyTotalLike (req, res) {
     try {
       const userId = req.user.id
       const likes = await LikeService.getUserLikes(userId)
@@ -56,21 +56,6 @@ class LikeController {
 
       const result = await LikeService.deleteLikeByArticleId(userId, articleId)
       return successResponse(res, result.data, result.message)
-    } catch (error) {
-      return errorResponse(res, 'Internal server error', [error.message], 500)
-    }
-  }
-
-  static async getDashboardSummary (req, res) {
-    try {
-      const userId = parseInt(req.params.userId)
-
-      if (req.user.id !== userId) {
-        return errorResponse(res, 'Unauthorized', [], 401)
-      }
-
-      const summary = await LikeService.getDashboardSummary(userId)
-      return successResponse(res, summary)
     } catch (error) {
       return errorResponse(res, 'Internal server error', [error.message], 500)
     }
