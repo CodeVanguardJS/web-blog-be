@@ -102,7 +102,7 @@ class ArticleService {
       })
 
       const totalArticle = await ArticleRepository.getTotalArticle(filterOptions.where)
-      console.log(totalArticle)
+      // console.log(totalArticle)
       const totalPage = Math.ceil(totalArticle / limit)
 
       const articleResp = {
@@ -192,7 +192,7 @@ class ArticleService {
     try {
       let type = 'DRAFT'
       const { title, categoryId, description, recipes, articleType } = body
-      console.log(categoryId)
+      // console.log(categoryId)
       const photoUpload = await cloudinaryUpload(photo)
 
       const recipeData = []
@@ -233,10 +233,10 @@ class ArticleService {
           create: recipeData
         }
       }
-      console.log(`data: ${data.category.connect.id}`)
+      // console.log(`data: ${data.category.connect.id}`)
 
       const article = await ArticleRepository.create(data)
-      console.log(`recipes: ${recipes}`)
+      // console.log(`recipes: ${recipes}`)
 
       return article
       // return data
@@ -272,7 +272,7 @@ class ArticleService {
       if (!data.type) {
         data.type = 'DRAFT'
       }
-      console.log(`data: ${data.type}`)
+      // console.log(`data: ${data.type}`)
       const recipe = await ArticleRepository.update(+id, data)
       return recipe
     } catch (error) {
@@ -297,7 +297,7 @@ class ArticleService {
         throw error
       }
       const article = await ArticleRepository.delete(+id)
-      console.log(article)
+      // console.log(article)
       return article
     } catch (error) {
       console.log(error)

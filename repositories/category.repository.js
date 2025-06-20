@@ -54,7 +54,6 @@ class CategoryRepository {
   static async delete (id) {
     try {
       const category = await prisma.category.delete({ where: { id } })
-      console.log(category)
       return category
     } catch (error) {
       console.log(error)
