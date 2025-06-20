@@ -89,7 +89,6 @@ class CategoryService {
         throw error
       }
       const category = await CategoryRepository.delete(+id)
-      console.log(category)
       return category
     } catch (error) {
       console.log(error)
