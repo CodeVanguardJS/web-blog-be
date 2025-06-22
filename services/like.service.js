@@ -70,23 +70,22 @@ class LikeService {
     })
   }
 
-static async getLikesByArticleId (articleId) {
-  return await prisma.like.findMany({
-    where: { article_id: Number(articleId) },
-    include: {
-      user: {
-        select: {
-          id: true,
-          name: true,
-          email: true,
-          photo_url: true,
-          createdAt: true
+  static async getLikesByArticleId (articleId) {
+    return await prisma.like.findMany({
+      where: { article_id: Number(articleId) },
+      include: {
+        user: {
+          select: {
+            id: true,
+            name: true,
+            email: true,
+            photo_url: true,
+            createdAt: true
+          }
         }
       }
-    }
-  })
-}
-
+    })
+  }
 
   static async deleteLikeByArticleId (userId, articleId) {
     const like = await prisma.like.findUnique({
