@@ -15,9 +15,9 @@ class ArticleController {
   static async getByUser (req, res, next) {
     try {
       const { id } = req.user
-      console.log(`id: ${id}`)
-      const category = await ArticleService.getAll(req.query, id)
-      return successResponse(res, category, 'Success Get Category By Id')
+      // console.log(`id: ${id}`)
+      const article = await ArticleService.getAll(req.query, id)
+      return successResponse(res, article, 'Success Get Article By User')
     } catch (error) {
       next(error)
     }
@@ -27,7 +27,7 @@ class ArticleController {
     try {
       const { id } = req.params
       const category = await ArticleService.getByCategory(id)
-      return successResponse(res, category, 'Success Get Category By Id')
+      return successResponse(res, category, 'Success Get Article By Category')
     } catch (error) {
       next(error)
     }
@@ -37,7 +37,7 @@ class ArticleController {
     try {
       const { id } = req.params
       const article = await ArticleService.getById(id)
-      return successResponse(res, article, 'Success Get Category By Id')
+      return successResponse(res, article, 'Success Get Article By Id')
     } catch (error) {
       next(error)
     }

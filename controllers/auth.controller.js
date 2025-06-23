@@ -69,6 +69,14 @@ class AuthController {
     } catch (error) {
       console.error('DASHBOARD ERROR:', error)
       return errorResponse(res, 'Internal server error', [error.message], 500)
+
+  static async getUserById (req, res, next) {
+    try {
+      const { id } = req.params
+      const user = await AuthService.getProfile(Number(id))
+      return successResponse(res, user, 'User profile retrieved successfully')
+    } catch (error) {
+      next(error)
     }
   }
 }
