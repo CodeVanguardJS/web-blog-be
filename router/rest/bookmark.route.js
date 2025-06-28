@@ -4,8 +4,7 @@ const authMiddleware = require('../../middlewares/authMiddleware')
 
 const router = express.Router()
 
-router.post('/', authMiddleware, BookmarkController.addBookmark)
+router.post('/', authMiddleware, BookmarkController.toggleBookmark)
 router.get('/', authMiddleware, BookmarkController.getBookmarks)
-router.delete('/:article_id', authMiddleware, BookmarkController.removeBookmark)
 
 module.exports = router
