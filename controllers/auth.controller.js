@@ -57,6 +57,21 @@ class AuthController {
     }
   }
 
+  static async getDashboardSummary (req, res) {
+    try {
+      const userId = req.user.id
+      console.log('USER ID:', userId)
+
+      const summary = await DashboardRepository.getDashboardSummary(userId)
+      console.log('SUMMARY:', summary)
+
+      return successResponse(res, summary)
+    } catch (error) {
+      console.error('DASHBOARD ERROR:', error)
+      return errorResponse(res, 'Internal server error', [error.message], 500)
+    }
+  }
+
   static async getUserById (req, res, next) {
     try {
       const { id } = req.params
