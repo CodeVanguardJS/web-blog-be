@@ -19,6 +19,16 @@ class ArticleService {
     }
   }
 
+  static async getByUserId (id) {
+    try {
+      const article = await ArticleRepository.getByUserId(+id)
+      return article
+    } catch (error) {
+      console.log(error)
+      throw error
+    }
+  }
+
   static async getAll (query, authId = undefined) {
     try {
       let { page, limit, search, articleType } = query

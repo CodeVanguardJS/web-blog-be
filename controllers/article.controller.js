@@ -12,7 +12,17 @@ class ArticleController {
     }
   }
 
-  static async getByUser (req, res, next) {
+  static async getByUserId (req, res, next) {
+    try {
+      const { id } = req.params
+      const article = await ArticleService.getByUserId(id)
+      return successResponse(res, article, 'Success Get Article By User')
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  static async getByMe (req, res, next) {
     try {
       const { id } = req.user
       // console.log(`id: ${id}`)

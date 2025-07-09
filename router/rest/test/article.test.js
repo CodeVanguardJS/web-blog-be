@@ -94,6 +94,14 @@ describe('Article Routes', () => {
     expect(res.body.data.data.length).toBe(3)
   })
 
+  test('Get Article By User Id', async () => {
+    const res = await request(app).get(`${BASE_URL}/user/1001`)
+    expect(res.statusCode).toBe(200)
+    expect(res.body.status).toBe(true)
+    expect(res.body.message).toBe('Success Get Article By User')
+    expect(res.body.data.length).toBe(2)
+  })
+
   test('Get article by id', async () => {
     const res = await request(app).get(`${BASE_URL}/1001`)
     expect(res.statusCode).toBe(200)
