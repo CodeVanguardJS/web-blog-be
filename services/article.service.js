@@ -29,7 +29,7 @@ class ArticleService {
     }
   }
 
-  static async getAll (query, authId = undefined) {
+  static async getByMe (query, authId) {
     try {
       let { page, limit, search, articleType } = query
 
@@ -82,14 +82,14 @@ class ArticleService {
         error.name = 'ErrorNotFound'
         throw error
       }
-      const userAuthId = 102
+      // const userAuthId = 102
       const article = await ArticleRepository.getAll(filterOptions)
 
       const dataArticle = article.map((item) => {
         // search bookmark from userAuthId
         let isBookmark = false
         const bookmarkItem = item.bookmark.find(
-          (bookmark) => bookmark.user_id === userAuthId && bookmark.status === true
+          (bookmark) => bookmark.user_id === authId && bookmark.status === true
         )
         if (bookmarkItem) {
           isBookmark = true
@@ -130,9 +130,102 @@ class ArticleService {
     }
   }
 
-  static async getById (id) {
+  static async getAll (query, authId) {
     try {
-      const userAuthId = 104
+      let { page, limit, search, articleType } = query
+
+      page = parseInt(page) || 1
+      limit = parseInt(limit) || 10
+
+      const type = articleType || 'all'
+
+      const filterOptions = {}
+      let searchFilter = {}
+      let typeFilter = {}
+
+      if (search) {
+        searchFilter = {
+          title: {
+            contains: search,
+            mode: 'insensitive'
+          }
+        }
+      }
+
+      if (type !== 'all') {
+        typeFilter = {
+          type: {
+            equals: type
+          }
+        }
+      }
+
+      filterOptions.where = {
+        ...searchFilter,
+        ...typeFilter
+      }
+
+      const startIndex = (page - 1) * limit
+
+      filterOptions.take = limit
+      filterOptions.skip = startIndex
+
+      if (page < 1 || limit < 1) {
+        const error = new Error('Page and limit must bigger than 0.')
+        error.name = 'ErrorNotFound'
+        throw error
+      }
+      // const userAuthId = 102
+      const article = await ArticleRepository.getAll(filterOptions)
+
+      const dataArticle = article.map((item) => {
+        // search bookmark from userAuthId
+        let isBookmark = false
+        const bookmarkItem = item.bookmark.find(
+          (bookmark) => bookmark.user_id === authId && bookmark.status === true
+        )
+        if (bookmarkItem) {
+          isBookmark = true
+        }
+
+        return {
+          id: item.id,
+          title: item.title,
+          total_like: item.total_like,
+          category_id: item.category_id,
+          user_id: item.user_id,
+          photo_url: item.photo_url,
+          type: item.type,
+          description: item.description,
+          category: item.category,
+          user: item.user,
+          is_bookmark: isBookmark,
+          bookmark: item.bookmark
+        }
+      })
+
+      const totalArticle = await ArticleRepository.getTotalArticle(filterOptions.where)
+      // console.log(totalArticle)
+      const totalPage = Math.ceil(totalArticle / limit)
+
+      const articleResp = {
+        data: dataArticle,
+        currentPage: page,
+        totalPage,
+        totalData: article.length
+      }
+      return articleResp
+    } catch (error) {
+      console.log(`the error: ${error}`)
+      const err = new Error('Internal Server Error')
+      err.statusCode = 500
+      throw err
+    }
+  }
+
+  static async getById (id, userAuthId = undefined) {
+    try {
+      // const userAuthId = 104
       const article = await ArticleRepository.getById(+id)
 
       let isBookmark = false
