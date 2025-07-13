@@ -1,11 +1,19 @@
 const { successResponse } = require('../helpers/response')
 const cloudinaryUpload = require('../libs/cloudinary')
 const ArticleService = require('../services/article.service')
+const jwt = require('jsonwebtoken')
 
 class ArticleController {
   static async getAll (req, res, next) {
     try {
-      const category = await ArticleService.getAll(req.query)
+      let authId = false
+      const token = req.headers.authorization?.split(' ')[1]
+      if (token) {
+        const decoded = jwt.verify(token, process.env.JWT_SECRET)
+        req.user = decoded
+        authId = req.user.id
+      }
+      const category = await ArticleService.getAll(req.query, authId)
       return successResponse(res, category, 'Success Get All Article')
     } catch (error) {
       next(error)
@@ -26,7 +34,7 @@ class ArticleController {
     try {
       const { id } = req.user
       // console.log(`id: ${id}`)
-      const article = await ArticleService.getAll(req.query, id)
+      const article = await ArticleService.getByMe(req.query, id)
       return successResponse(res, article, 'Success Get Article By User')
     } catch (error) {
       next(error)
@@ -45,8 +53,15 @@ class ArticleController {
 
   static async getById (req, res, next) {
     try {
+      let authId = false
       const { id } = req.params
-      const article = await ArticleService.getById(id)
+      const token = req.headers.authorization?.split(' ')[1]
+      if (token) {
+        const decoded = jwt.verify(token, process.env.JWT_SECRET)
+        req.user = decoded
+        authId = req.user.id
+      }
+      const article = await ArticleService.getById(id, authId)
       return successResponse(res, article, 'Success Get Article By Id')
     } catch (error) {
       next(error)
