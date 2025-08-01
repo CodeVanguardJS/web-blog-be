@@ -54,6 +54,7 @@ class ArticleRepository {
       const article = await prisma.article.findMany({
         where: { category_id: id },
         include: {
+          like: true,
           bookmark: true,
           category: true,
           user: {

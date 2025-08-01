@@ -44,7 +44,14 @@ class ArticleController {
   static async getByCategory (req, res, next) {
     try {
       const { id } = req.params
-      const category = await ArticleService.getByCategory(id)
+      let authId = false
+      const token = req.headers.authorization?.split(' ')[1]
+      if (token) {
+        const decoded = jwt.verify(token, process.env.JWT_SECRET)
+        req.user = decoded
+        authId = req.user.id
+      }
+      const category = await ArticleService.getByCategory(id, authId)
       return successResponse(res, category, 'Success Get Article By Category')
     } catch (error) {
       next(error)
