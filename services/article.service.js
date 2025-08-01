@@ -23,9 +23,7 @@ class ArticleService {
         }
 
         let isLike = false
-        const likeItem = item.like.find(
-          (like) => like.user_id === authId && like.status === true
-        )
+        const likeItem = item.like.find((like) => like.user_id === authId && like.status === true)
         if (likeItem) {
           isLike = true
         }
