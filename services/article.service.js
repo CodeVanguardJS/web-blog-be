@@ -3,7 +3,7 @@ const ArticleRepository = require('../repositories/article.repository')
 const CategoryRepository = require('../repositories/category.repository')
 
 class ArticleService {
-  static async getByCategory (id) {
+  static async getByCategory (id, authId = undefined) {
     try {
       const isCategoryExist = await CategoryRepository.getById(+id)
       if (!isCategoryExist) {
@@ -11,7 +11,39 @@ class ArticleService {
         error.name = 'ErrorNotFound'
         throw error
       }
-      const article = await ArticleRepository.getByCategory(+id)
+      let article = await ArticleRepository.getByCategory(+id)
+      article = article.map((item) => {
+        // search bookmark from userAuthId
+        let isBookmark = false
+        const bookmarkItem = item.bookmark.find(
+          (bookmark) => bookmark.user_id === authId && bookmark.status === true
+        )
+        if (bookmarkItem) {
+          isBookmark = true
+        }
+
+        let isLike = false
+        const likeItem = item.like.find((like) => like.user_id === authId && like.status === true)
+        if (likeItem) {
+          isLike = true
+        }
+
+        return {
+          id: item.id,
+          title: item.title,
+          total_like: item.total_like,
+          is_like: isLike,
+          category_id: item.category_id,
+          user_id: item.user_id,
+          photo_url: item.photo_url,
+          type: item.type,
+          description: item.description,
+          category: item.category,
+          user: item.user,
+          is_bookmark: isBookmark,
+          bookmark: item.bookmark
+        }
+      })
       return article
     } catch (error) {
       console.log(error)
